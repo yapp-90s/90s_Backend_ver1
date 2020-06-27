@@ -35,11 +35,8 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 @RequiredArgsConstructor
-
-@Order(3)
 @Component
-@Lazy
-public class DefaultUserInitializer implements CommandLineRunner {
+public class DefaultUserInitializer{
     @Autowired
     UserRepository userRepository;
     @Autowired
@@ -56,7 +53,6 @@ public class DefaultUserInitializer implements CommandLineRunner {
     PhotoService photoService;
     private final PasswordEncoder passwordEncoder;
 
-    @Override
     public void run(String... args) throws Exception {
 
         System.out.println("CREATE DEFAULT USER");
@@ -118,29 +114,7 @@ public class DefaultUserInitializer implements CommandLineRunner {
             }
         }
 
-//        1. 앨범 제목: 소듕한 내 일상들
-//        파일명: polaroid
-//        앨범커버이미지: albumcover1990Copy
-//
-//        2. 앨범 제목: 집사라서 행복해
-//        파일명: memory
-//        앨범커버이미지: albumcoverParadiso
-//
-//        3. 앨범 제목: 금강산도식후경
-//        파일명: portraw
-//        앨범커버이미지: albumcoverHappilyeverafter
-//
-//        4. 앨범 제목: 내 이야기
-//        파일명: portrab
-//        앨범커버이미지: albumcoverFavoritethings
-//
-//        5. 앨범 제목: 함께한 지 365일
-//        파일명: mini
-//        앨범커버이미지: albumcoverLessbutbetter
-//
-//        6. 앨범 제목: 우리가 계절을 기억하는 법
-//        파일명: filmroll
-//        앨범커버이미지: albumcover90Sretroclub
+//        TESTER INITIALIZER
 
         for(int i = 0; i < 31; i++){
             String name = "tester" + i;

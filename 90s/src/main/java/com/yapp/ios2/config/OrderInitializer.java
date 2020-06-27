@@ -17,9 +17,8 @@ import org.springframework.stereotype.Component;
 import java.util.Arrays;
 import java.util.List;
 
-@Order(1)
 @Component
-public class OrderInitializer implements CommandLineRunner {
+public class OrderInitializer{
 
     @Autowired
     AlbumOrderPaperType1Repository albumOrderPaperType1Repository;
@@ -30,9 +29,7 @@ public class OrderInitializer implements CommandLineRunner {
     @Autowired
     AlbumOrderPostTypeRepository albumOrderPostTypeRepository;
 
-    @Override
     public void run(String... args) throws Exception{
-
 
 //        종이타입 초기화
         List<String> papers1 = Arrays.asList("gloss","matt");
@@ -44,15 +41,6 @@ public class OrderInitializer implements CommandLineRunner {
                                         .type(papers1.get(i))
                                         .build());
             }
-//            papers1.forEach(
-//                    paper -> {
-//                        albumOrderPaperType1Repository.save(
-//                                AlbumOrderPaperType1.builder()
-//                                        .uid(Long.valueOf(index))
-//                                        .type(paper)
-//                                        .build());
-//                    }
-//            );
         }
 
         List<String> papers2 = Arrays.asList("normal","good", "better");
@@ -64,14 +52,6 @@ public class OrderInitializer implements CommandLineRunner {
                                 .type(papers2.get(i))
                                 .build());
             }
-//            papers2.forEach(
-//                    paper -> {
-//                        albumOrderPaperType2Repository.save(
-//                                AlbumOrderPaperType2.builder()
-//                                        .type(paper)
-//                                        .build());
-//                    }
-//            );
         }
 
 //        배송 상태 초기화
@@ -84,15 +64,6 @@ public class OrderInitializer implements CommandLineRunner {
                                 .status(statuses.get(i))
                                 .build());
             }
-//            statuses.forEach(
-//                    status -> {
-//                        albumOrderStatusRepository.save(
-//                                AlbumOrderStatus.builder()
-//                                        .status(status)
-//                                        .build()
-//                        );
-//                    }
-//            );
         }
 
         //        배송 종류 초기
@@ -105,15 +76,6 @@ public class OrderInitializer implements CommandLineRunner {
                                 .type(postTypes.get(i))
                                 .build());
             }
-//            statuses.forEach(
-//                    status -> {
-//                        albumOrderStatusRepository.save(
-//                                AlbumOrderStatus.builder()
-//                                        .status(status)
-//                                        .build()
-//                        );
-//                    }
-//            );
         }
 
     }

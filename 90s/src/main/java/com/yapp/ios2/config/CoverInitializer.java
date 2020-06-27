@@ -12,14 +12,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-@Order(2)
 @Component
-public class CoverInitializer implements CommandLineRunner {
+public class CoverInitializer{
 
     @Autowired
     CoverRepository coverRepository;
 
-    @Override
     public void run(String... args) throws Exception {
         List<String> covers = Arrays.asList(
                 "1990",
