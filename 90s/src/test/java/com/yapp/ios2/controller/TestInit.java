@@ -73,21 +73,27 @@ public class TestInit {
 
     }
 
-    void createTester(){
-        this.testUser = userRepository.findByEmail("tester0000@90s.com").orElse(
-                User.builder()
-                        .email("tester0000@90s.com")
-                        .name("90s_tester")
-                        .password(passwordEncoder.encode("test"))
-                        .phone("010-0000-0000")
-                        .roles(Collections.singletonList("ROLE_TESTER"))
-                        .build()
-        );
-        this.jwt = jwtProvider.createToken(testUser.getUid().toString(), testUser.getRoles());
-    }
-    void deleteTester(){
-        userRepository.delete(this.testUser);
-    }
+//    void createTester(){
+//        this.testUser = userRepository.findByEmail("tester@90s.com").orElse(
+//                User.builder()
+//                        .email("tester0000@90s.com")
+//                        .name("90s_tester")
+//                        .password(passwordEncoder.encode("test"))
+//                        .phone("010-0000-0000")
+//                        .roles(Collections.singletonList("ROLE_TESTER"))
+//                        .build()
+//        );
+//        if(!userRepository.findByEmail(this.testUser.getEmail()).isPresent()){
+//            userRepository.save(this.testUser);
+//        }
+//        this.jwt = jwtProvider.createToken(testUser.getUid().toString(), testUser.getRoles());
+//    }
+//
+//    void deleteTester(){
+//        if(userRepository.findByEmail(this.testUser.getEmail()).isPresent()){
+//            userRepository.delete(this.testUser);
+//        }
+//    }
 
 //    @After
 //    public void After(){

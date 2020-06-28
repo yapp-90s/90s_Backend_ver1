@@ -43,8 +43,12 @@ public class UserControllerTest extends TestInit{
     @Test
     public void 회원가입() throws Exception {
 
+        if(userRepository.findByEmail("tester@90s.com").isPresent()){
+            userRepository.delete(userRepository.findByEmail("tester@90s.com").get());
+        }
+
         JoinDto joinDto = new JoinDto();
-        joinDto.setEmail("test9999@90s.com");
+        joinDto.setEmail("tester@90s.com");
         joinDto.setName("test");
         joinDto.setPassword("test");
         joinDto.setPhone("010-9523-3114");
@@ -70,6 +74,10 @@ public class UserControllerTest extends TestInit{
                                 fieldWithPath("sosial").type("Boolean").description("카카오 로그인 여부").attributes(new Attributes.Attribute("format", "true / false"))
                         )
                 ));
+
+        if(userRepository.findByEmail("tester@90s.com").isPresent()){
+            userRepository.delete(userRepository.findByEmail("tester@90s.com").get());
+        }
     }
 
     @Test
@@ -103,7 +111,7 @@ public class UserControllerTest extends TestInit{
     @Test
     public void 회원탈퇴() throws Exception {
 
-        createTester();
+//        createTester();
 
         mockMvc.perform(
                 get("/user/signout")
