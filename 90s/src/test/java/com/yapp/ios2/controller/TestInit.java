@@ -30,7 +30,7 @@ import static org.springframework.security.test.web.servlet.setup.SecurityMockMv
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = TestConfig.class)
-@ActiveProfiles("dev")
+@ActiveProfiles("test")
 public class TestInit {
 
     @Rule
