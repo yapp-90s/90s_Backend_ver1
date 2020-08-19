@@ -7,6 +7,7 @@ import com.yapp.ios2.config.JwtFilter;
 import com.yapp.ios2.config.JwtProvider;
 import com.yapp.ios2.dto.JoinDto;
 import com.yapp.ios2.dto.LoginDto;
+import com.yapp.ios2.repository.UserRepository;
 import com.yapp.ios2.service.UserService;
 import com.yapp.ios2.vo.User;
 import org.junit.Before;
@@ -19,6 +20,7 @@ import org.springframework.http.MediaType;
 import org.springframework.restdocs.JUnitRestDocumentation;
 import org.springframework.restdocs.mockmvc.RestDocumentationResultHandler;
 import org.springframework.restdocs.snippet.Attributes;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -38,10 +40,52 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = TestConfig.class)
+@ActiveProfiles("test")
+public class UserControllerTest{
+    @Rule
+    public JUnitRestDocumentation restDocumentation = new JUnitRestDocumentation();
 
-public class UserControllerTest extends TestInit{
+    @Autowired
+    UserService userService;
+
+    @Autowired
+    WebApplicationContext context;
+
+    @Autowired
+    UserRepository userRepository;
+
+    @Autowired
+    JwtProvider jwtProvider;
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
+
+    MockMvc mockMvc;
+    RestDocumentationResultHandler document;
+
+    User testUser;
+
+    String jwt;
+
+    @Before
+    public void setUp() {
+        this.document = document(
+                "{class-name}/{method-name}",
+                preprocessResponse(prettyPrint())
+        );
+        this.mockMvc = MockMvcBuilders.webAppContextSetup(this.context)
+                .apply(documentationConfiguration(this.restDocumentation)
+                        .uris().withScheme("https").withHost("90s.com").withPort(443))
+                .apply(springSecurity())
+                .alwaysDo(document)
+                .build();
+
+    }
+
     @Test
-    public void 회원가입() throws Exception {
+    public void join() throws Exception {
 
         if(userRepository.findByEmail("tester@90s.com").isPresent()){
             userRepository.delete(userRepository.findByEmail("tester@90s.com").get());
@@ -75,13 +119,13 @@ public class UserControllerTest extends TestInit{
                         )
                 ));
 
-        if(userRepository.findByEmail("tester@90s.com").isPresent()){
-            userRepository.delete(userRepository.findByEmail("tester@90s.com").get());
-        }
+//        if(userRepository.findByEmail("tester@90s.com").isPresent()){
+//            userRepository.delete(userRepository.findByEmail("tester@90s.com").get());
+//        }
     }
 
     @Test
-    public void 로그인() throws Exception {
+    public void login() throws Exception {
 
         LoginDto loginDto = new LoginDto();
         loginDto.setEmail("tester0@90s.com");
@@ -112,6 +156,9 @@ public class UserControllerTest extends TestInit{
     public void 회원탈퇴() throws Exception {
 
 //        createTester();
+        User user = userRepository.findByEmail("tester0@90s.com").get();
+
+        jwt = jwtProvider.createToken(user.getUid().toString(), user.getRoles());
 
         mockMvc.perform(
                 get("/user/signout")

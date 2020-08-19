@@ -7,6 +7,7 @@ FC JANYANG CAPTAIN;
 :toclevels: 3
 :sectlinks:
 
+:snippets: ../../../build/generated-snippets
 
 == Overview
 
@@ -60,7 +61,7 @@ FC JANYANG CAPTAIN;
 
 
 ***
-==== 회원가입
+==== JOIN
 
 user/join::
 회원가입의 방식은 2가지이며, 각각의 방식에 따라 필요한 값이 달라집니다. +
@@ -75,10 +76,10 @@ social 파라미터를 true 로 보내며, 따로 password를 보내지 않아�
 | 회원가입 | Post | user/join
 |===
 
-operation::user-controller-test/회원가입[snippets='request-fields,http-request,http-response']
+operation::user-controller-test/join[snippets='request-fields,http-request,http-response']
 
 ***
-==== 로그인
+==== LOGIN
 
 user/login::
 로그인 방식 또한 회원가입처럼 2가지 입니다.
@@ -92,8 +93,9 @@ social 파라미터를 true 로 보내며, 따로 password를 보내지 않아�
 | 로그인 | Post | user/login
 |===
 
-operation::user-controller-test/로그인[snippets='request-fields,http-request,http-response']
-
+include::{snippets}/user-controller-test/login/request-fields.adoc[]
+include::{snippets}/user-controller-test/login/http-request.adoc[]
+include::{snippets}/user-controller-test/login/http-response.adoc[]
 
 === AlbumOrder
 
