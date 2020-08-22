@@ -5,7 +5,6 @@ import com.yapp.ios2.service.AlbumService;
 import com.yapp.ios2.service.SnsService;
 import com.yapp.ios2.config.JwtProvider;
 import com.yapp.ios2.service.UserService;
-import com.yapp.ios2.vo.Album;
 import com.yapp.ios2.vo.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -14,7 +13,6 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Optional;
 
 @Api(tags = {"1. User"})
@@ -245,11 +243,11 @@ public class UserController {
         return jwtDto;
     }
 
-    @GetMapping("/signout")
+    @GetMapping("/delete")
     @ResponseBody
-    public void signout(@AuthenticationPrincipal UserDetails userDetails){
+    public void delete(@AuthenticationPrincipal UserDetails userDetails){
         User user = userService.getUserByEmail(userDetails.getUsername());
-        userService.signout(user);
+        userService.delete(user);
     }
 
 

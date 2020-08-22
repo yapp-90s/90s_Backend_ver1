@@ -97,7 +97,7 @@ public class UserService implements UserDetailsService {
         return user;
     }
 
-    public void signout(User user){
+    public void delete(User user){
 
         List<Album> albums = albumRepository.findByUser(user);
         System.out.println("SIZE OF ALBUMS : " + albums.size());

@@ -98,3 +98,18 @@ social 파라미터를 true 로 보내며, 따로 password를 보내지 않아�
 include::{snippets}/user-controller-test/login/request-fields.adoc[]
 include::{snippets}/user-controller-test/login/http-request.adoc[]
 include::{snippets}/user-controller-test/login/http-response.adoc[]
+
+==== DELETE_ACCOUNT
+
+user/delete::
+Get 으로 jwt 를 header에 넣어 보내주면 탈퇴됩니다.
+
+|===
+| 기능 | 방식 | URI
+| 로그인 | Get | user/delete
+|===
+
+include::{snippets}/user-controller-test/delete_account/http-request.adoc[]
+include::{snippets}/user-controller-test/delete_account/http-response.adoc[]
+
+

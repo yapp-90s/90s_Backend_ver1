@@ -454,11 +454,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel3">
 <li><a href="#_join">JOIN</a></li>
 <li><a href="#_login">LOGIN</a></li>
-</ul>
-</li>
-<li><a href="#_albumorder">AlbumOrder</a>
-<ul class="sectlevel3">
-<li><a href="#_회원가입">회원가입</a></li>
+<li><a href="#_delete_account">DELETE_ACCOUNT</a></li>
 </ul>
 </li>
 </ul>
@@ -601,8 +597,96 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>operation::user-controller-test/join[snippets='request-fields,http-request,http-response']</p>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">필드명</th>
+<th class="tableblock halign-left valign-top">타입</th>
+<th class="tableblock halign-left valign-top">필수값</th>
+<th class="tableblock halign-left valign-top">예시</th>
+<th class="tableblock halign-left valign-top">설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>email</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mailto:test@90s.com">test@90s.com</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">이메일</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>name</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">유저 이름</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>password</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">카카오 로그인 시에는 null로 보내지 않아도 무관합니다.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">비밀번호</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>phone</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">010-1234-5678</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">핸드폰 번호</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sosial</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true / false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">카카오 로그인 여부</p></td>
+</tr>
+</tbody>
+</table>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /user/join HTTP/1.1
+Content-Type: application/json
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwicm9sZXMiOlsiUk9MRV9UUllFUiJdLCJpYXQiOjE1OTMyMzI0MzIsImV4cCI6MjIyMzk1MjQzMn0.T6xSOI3n0NtHgK6abKt3A_aTcKTF5mT563pq6wBV4Nw
+Accept: application/json
+Content-Length: 123
+Host: 90s.com
+
+{
+  "email" : "tester@90s.com",
+  "password" : "test",
+  "name" : "test",
+  "phone" : "010-9523-3114",
+  "sosial" : false
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+Strict-Transport-Security: max-age=31536000 ; includeSubDomains
+X-Frame-Options: DENY
+Content-Length: 173
+
+{
+  "jwt" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI3MzEiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNTk3ODM1MTI1LCJleHAiOjIyMjg1NTUxMjV9.A-IGgO6NtZNOsheyhh22nHuypNPqDdlylaBoELPlhXY"
+}</code></pre>
+</div>
 </div>
 <hr>
 </div>
@@ -713,43 +797,18 @@ X-Frame-Options: DENY
 Content-Length: 176
 
 {
-  "jwt" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2OTIiLCJyb2xlcyI6WyJST0xFX1RFU1RFUiJdLCJpYXQiOjE1OTY5NzM1NTksImV4cCI6MjIyNzY5MzU1OX0.bGFVoh6EZmKeF3diK36TBwUoxGrqU9b-e-qU2rO1eVA"
+  "jwt" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI3MDciLCJyb2xlcyI6WyJST0xFX1RFU1RFUiJdLCJpYXQiOjE1OTc4MzUxMjUsImV4cCI6MjIyODU1NTEyNX0.YxBW764BU_UeAi5dU9rWxBiASWzcCcnjq8RxXYiKubk"
 }</code></pre>
 </div>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_albumorder"><a class="link" href="#_albumorder">AlbumOrder</a></h3>
-<div class="listingblock">
-<div class="content">
-<pre>주문 관련한 API 입니다.</pre>
-</div>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Controller</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">URI</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AlbumOrder</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">album/order/**</p></td>
-</tr>
-</tbody>
-</table>
-<hr>
 <div class="sect3">
-<h4 id="_회원가입"><a class="link" href="#_회원가입">회원가입</a></h4>
+<h4 id="_delete_account"><a class="link" href="#_delete_account">DELETE_ACCOUNT</a></h4>
 <div class="dlist">
 <dl>
-<dt class="hdlist1">album/order/createAlbumOrder</dt>
+<dt class="hdlist1">user/delete</dt>
 <dd>
-<p>주문을 만듭니다.</p>
+<p>Get 으로 jwt 를 header에 넣어 보내주면 탈퇴됩니다.</p>
 </dd>
 </dl>
 </div>
@@ -766,14 +825,34 @@ Content-Length: 176
 <td class="tableblock halign-left valign-top"><p class="tableblock">URI</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">엘범 주분</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Post</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">album/order/createAlbumOrder</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">로그인</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Get</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user/delete</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>operation::album-order-controller-test/주문생성[snippets='request-fields,http-request,http-response']</p>
+<p>Unresolved directive in api-docs.adoc - include::../../../build/generated-snippets/user-controller-test/delete_account/request-fields.adoc[]</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /user/delete HTTP/1.1
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI3MjkiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNTk3ODM1MTI0LCJleHAiOjIyMjg1NTUxMjR9.lZOCe0vLLg5u4tOHhgh9ZxKhh0dsXLzLmfUtUKrVBso
+Accept: application/json
+Host: 90s.com</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+Strict-Transport-Security: max-age=31536000 ; includeSubDomains
+X-Frame-Options: DENY</code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -783,7 +862,7 @@ Content-Length: 176
 <div id="footer">
 <div id="footer-text">
 Version 0.0.1-SNAPSHOT<br>
-Last updated 2020-08-08 23:26:26 +0900
+Last updated 2020-08-19 19:46:47 +0900
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/github.min.css">

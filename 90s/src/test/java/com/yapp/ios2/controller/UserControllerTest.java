@@ -153,15 +153,12 @@ public class UserControllerTest{
     }
 
     @Test
-    public void 회원탈퇴() throws Exception {
+    public void delete_account() throws Exception {
 
-//        createTester();
-        User user = userRepository.findByEmail("tester0@90s.com").get();
-
-        jwt = jwtProvider.createToken(user.getUid().toString(), user.getRoles());
+        jwt = TestFunc.createTester(userRepository, passwordEncoder ,jwtProvider);
 
         mockMvc.perform(
-                get("/user/signout")
+                get("/user/delete")
                         .header("X-AUTH-TOKEN", jwt)
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
