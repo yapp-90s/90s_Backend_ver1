@@ -6,6 +6,7 @@ FC JANYANG CAPTAIN;
 :toc: left
 :toclevels: 3
 :sectlinks:
+:table-caption!:
 
 :snippets: ../../../build/generated-snippets
 
@@ -70,14 +71,17 @@ social 파라미터를 false 로 보내며, password를 보내야 합니다.
 카카오 로그인::
 social 파라미터를 true 로 보내며, 따로 password를 보내지 않아도 됩니다.
 
-
+.Desc
 |===
 | 기능 | 방식 | URI
 | 회원가입 | Post | user/join
 |===
 
+.Request Fields
 include::{snippets}/user-controller-test/join/request-fields.adoc[]
+.Request
 include::{snippets}/user-controller-test/join/http-request.adoc[]
+.Response
 include::{snippets}/user-controller-test/join/http-response.adoc[]
 
 ***
@@ -90,13 +94,19 @@ social 파라미터를 false 로 보내며, password를 보내야 합니다.
 카카오 로그인::
 social 파라미터를 true 로 보내며, 따로 password를 보내지 않아도 됩니다.
 
+.Desc
 |===
 | 기능 | 방식 | URI
 | 로그인 | Post | user/login
 |===
 
+.Request Fields
 include::{snippets}/user-controller-test/login/request-fields.adoc[]
+
+.Request
 include::{snippets}/user-controller-test/login/http-request.adoc[]
+
+.Response
 include::{snippets}/user-controller-test/login/http-response.adoc[]
 
 ==== DELETE_ACCOUNT
@@ -104,12 +114,61 @@ include::{snippets}/user-controller-test/login/http-response.adoc[]
 user/delete::
 Get 으로 jwt 를 header에 넣어 보내주면 탈퇴됩니다.
 
+.Desc
 |===
 | 기능 | 방식 | URI
 | 로그인 | Get | user/delete
 |===
 
+.Request
 include::{snippets}/user-controller-test/delete_account/http-request.adoc[]
+
+.Response
 include::{snippets}/user-controller-test/delete_account/http-response.adoc[]
 
+==== CHECK_EMAIL
+
+user/checkEmail::
+이메일이 중복되었는지 확인합니다. +
+이메일이 중복된다면 true +
+중복되지 않는다면 false.
+
+.result
+|===
+| 중복 O | 중복 X
+| true | false
+|===
+
+.Desc
+|===
+| 기능 | 방식 | URI
+| 로그인 | Post | user/checkEmail
+|===
+
+.Request fields
+include::{snippets}/user-controller-test/check_email/request-fields.adoc[]
+.Request
+include::{snippets}/user-controller-test/check_email/http-request.adoc[]
+.Response
+include::{snippets}/user-controller-test/check_email/http-response.adoc[]
+
+==== CHECK_PHONENUM
+
+user/phoneNum::
+주어진 핸드폰 번호로 임의의 6자리 난수를 발생시켜 발송하는 API입니다. 핸드폰 번호 검증을 할 때 사용합니다.
+
+.Desc
+|===
+| 기능 | 방식 | URI
+| 로그인 | Post | user/phoneNum
+|===
+
+.Request fields
+include::{snippets}/user-controller-test/check_phone-num/request-fields.adoc[]
+
+.Request
+include::{snippets}/user-controller-test/check_phone-num/http-request.adoc[]
+
+.Response
+include::{snippets}/user-controller-test/check_phone-num/http-response.adoc[]
 

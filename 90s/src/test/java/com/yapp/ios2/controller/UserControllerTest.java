@@ -5,8 +5,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.yapp.ios2.TestConfig;
 import com.yapp.ios2.config.JwtFilter;
 import com.yapp.ios2.config.JwtProvider;
+import com.yapp.ios2.dto.DuplicatedEmailDto;
 import com.yapp.ios2.dto.JoinDto;
 import com.yapp.ios2.dto.LoginDto;
+import com.yapp.ios2.dto.SmsDto;
 import com.yapp.ios2.repository.UserRepository;
 import com.yapp.ios2.service.UserService;
 import com.yapp.ios2.vo.User;
@@ -165,4 +167,55 @@ public class UserControllerTest{
                 .andExpect(status().isOk())
                 .andDo(print());
     }
+
+    @Test
+    public void check_email() throws Exception {
+//        jwt = TestFunc.createTester(userRepository, passwordEncoder ,jwtProvider);
+
+        DuplicatedEmailDto duplicatedEmailDto = new DuplicatedEmailDto();
+        duplicatedEmailDto.setEmail("tester@90s.com");
+
+        ObjectMapper json = new ObjectMapper();
+        String jsonString = json.writerWithDefaultPrettyPrinter().writeValueAsString(duplicatedEmailDto);
+
+        mockMvc.perform(
+                post("/user/checkEmail")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonString)
+                        .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andDo(document.document(
+                        requestFields(
+                                fieldWithPath("email").description("이메일").attributes(new Attributes.Attribute("format","test@90s.com"))
+                        )
+                ));
+
+    }
+
+
+
+//    @Test
+//    public void check_phoneNum() throws Exception {
+//
+//        SmsDto.SmsRequestDto smsRequestDto = new SmsDto.SmsRequestDto();
+//        smsRequestDto.setPhoneNumber("01095233114");
+//
+//        ObjectMapper json = new ObjectMapper();
+//        String jsonString = json.writerWithDefaultPrettyPrinter().writeValueAsString(smsRequestDto);
+//
+//        mockMvc.perform(
+//                post("/user/checkPhoneNum")
+//                        .contentType(MediaType.APPLICATION_JSON)
+//                        .content(jsonString)
+//                        .accept(MediaType.APPLICATION_JSON))
+//                .andDo(print())
+//                .andExpect(status().isOk())
+//                .andDo(document.document(
+//                        requestFields(
+//                                fieldWithPath("phoneNumber").description("핸드폰번호").attributes(new Attributes.Attribute("format","01012341234")).description("핸드폰 번호를 보내며 - 없이 숫자만 보냅니다.")
+//                        )
+//                ));
+//
+//    }
 }
