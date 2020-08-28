@@ -172,3 +172,24 @@ include::{snippets}/user-controller-test/check_phone-num/http-request.adoc[]
 .Response
 include::{snippets}/user-controller-test/check_phone-num/http-response.adoc[]
 
+==== UPDATE_PHONE-NUMBER
+
+user/updatePhoneNumber::
+사용자의 핸드폰 정보를 변경합니다.
+
+.Desc
+|===
+| 기능 | 방식 | URI
+| 로그인 | Post | user/updatePhoneNumber
+|===
+
+.Request Header
+include::{snippets}/user-controller-test/update-phone-number/request-headers.adoc[]
+.Request fields
+include::{snippets}/user-controller-test/update-phone-number/request-fields.adoc[]
+
+.Request
+include::{snippets}/user-controller-test/update-phone-number/http-request.adoc[]
+
+.Response
+include::{snippets}/user-controller-test/update-phone-number/http-response.adoc[]

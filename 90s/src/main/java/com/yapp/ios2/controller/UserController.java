@@ -179,10 +179,10 @@ public class UserController {
     )
     @PostMapping("/updatePhoneNumber")
     @ResponseBody
-    public ResponseDto.JwtDto updatePhoneNumber(@AuthenticationPrincipal UserDetails userDetails, @RequestBody UserDto.AccountInfo userDto){
+    public ResponseDto.JwtDto updatePhoneNumber(@AuthenticationPrincipal UserDetails userDetails, @RequestBody UserDto.PhoneNum phoneNumDto){
 
         User user = userService.getUserByEmail(userDetails.getUsername());
-        userService.updatePhoneNumber(user, userDto.getPhoneNum());
+        userService.updatePhoneNumber(user, phoneNumDto.getPhoneNum());
 
         String jwt = jwtProvider.createToken(user.getUid().toString(), user.getRoles());
         ResponseDto.JwtDto jwtDto = new ResponseDto.JwtDto();

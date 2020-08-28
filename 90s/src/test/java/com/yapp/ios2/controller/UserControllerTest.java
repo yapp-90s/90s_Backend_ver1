@@ -5,10 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.yapp.ios2.TestConfig;
 import com.yapp.ios2.config.JwtFilter;
 import com.yapp.ios2.config.JwtProvider;
-import com.yapp.ios2.dto.DuplicatedEmailDto;
-import com.yapp.ios2.dto.JoinDto;
-import com.yapp.ios2.dto.LoginDto;
-import com.yapp.ios2.dto.SmsDto;
+import com.yapp.ios2.dto.*;
 import com.yapp.ios2.repository.UserRepository;
 import com.yapp.ios2.service.UserService;
 import com.yapp.ios2.vo.User;
@@ -27,8 +24,12 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.context.WebApplicationContext;
 
+import static com.yapp.ios2.controller.TestFunc.deleteTester;
+import static org.springframework.restdocs.headers.HeaderDocumentation.headerWithName;
+import static org.springframework.restdocs.headers.HeaderDocumentation.requestHeaders;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.post;
@@ -194,6 +195,35 @@ public class UserControllerTest{
     }
 
 
+    @Test
+    public void updatePhoneNumber() throws Exception {
+
+        jwt = TestFunc.createTester(userRepository, passwordEncoder ,jwtProvider);
+
+        UserDto.PhoneNum phoneNum = new UserDto.PhoneNum();
+        phoneNum.setPhoneNum("01095233114");
+
+        ObjectMapper json = new ObjectMapper();
+        String jsonString = json.writerWithDefaultPrettyPrinter().writeValueAsString(phoneNum);
+
+        mockMvc.perform(
+                post("/user/updatePhoneNumber")
+                        .header("X-AUTH-TOKEN", jwt)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonString)
+                        .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andDo(document.document(
+                        requestHeaders(headerWithName("X-AUTH-TOKEN").description("JWT"))
+                        ,requestFields(
+                                fieldWithPath("phoneNum").description("핸드폰번호").attributes(new Attributes.Attribute("format","01012345678"))
+                        )
+                ));
+
+        deleteTester(jwt, userService, userRepository, jwtProvider);
+
+    }
 
 //    @Test
 //    public void check_phoneNum() throws Exception {
