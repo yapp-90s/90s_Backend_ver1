@@ -19,12 +19,16 @@ import org.springframework.http.MediaType;
 import org.springframework.restdocs.JUnitRestDocumentation;
 import org.springframework.restdocs.mockmvc.RestDocumentationResultHandler;
 import org.springframework.restdocs.snippet.Attributes;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.WebApplicationContext;
 
 import static com.yapp.ios2.controller.TestFunc.deleteTester;
@@ -223,6 +227,24 @@ public class UserControllerTest{
 
         deleteTester(jwt, userService, userRepository, jwtProvider);
 
+    }
+
+
+    @Test
+    public void getUserProile() throws Exception {
+        jwt = TestFunc.createTester(userRepository, passwordEncoder ,jwtProvider);
+
+        mockMvc.perform(
+                get("/user/getUserProfile")
+                        .header("X-AUTH-TOKEN", jwt)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andDo(document.document(
+                        requestHeaders(headerWithName("X-AUTH-TOKEN").description("JWT"))
+                ));
+        deleteTester(jwt, userService, userRepository, jwtProvider);
     }
 
 //    @Test

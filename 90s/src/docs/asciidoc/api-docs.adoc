@@ -160,7 +160,7 @@ user/phoneNum::
 .Desc
 |===
 | 기능 | 방식 | URI
-| 로그인 | Post | user/phoneNum
+| 핸드폰 번호 확인 | Post | user/phoneNum
 |===
 
 .Request fields
@@ -180,11 +180,12 @@ user/updatePhoneNumber::
 .Desc
 |===
 | 기능 | 방식 | URI
-| 로그인 | Post | user/updatePhoneNumber
+| 핸드폰 번호 변경 | Post | user/updatePhoneNumber
 |===
 
 .Request Header
 include::{snippets}/user-controller-test/update-phone-number/request-headers.adoc[]
+
 .Request fields
 include::{snippets}/user-controller-test/update-phone-number/request-fields.adoc[]
 
@@ -193,3 +194,23 @@ include::{snippets}/user-controller-test/update-phone-number/http-request.adoc[]
 
 .Response
 include::{snippets}/user-controller-test/update-phone-number/http-response.adoc[]
+
+==== GET_USER-PROFILE
+
+user/getUserProfile::
+사용자의 정보를 조회합니다.
+
+.Desc
+|===
+| 기능 | 방식 | URI
+| 사용자 정보 조회 | Post | user/getUserProfile
+|===
+
+.Request Header
+include::{snippets}/user-controller-test/get-user-proile/request-headers.adoc[]
+
+.Request
+include::{snippets}/user-controller-test/get-user-proile/http-request.adoc[]
+
+.Response
+include::{snippets}/user-controller-test/get-user-proile/http-response.adoc[]
