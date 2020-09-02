@@ -461,6 +461,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_get_user_profile">GET_USER-PROFILE</a></li>
 </ul>
 </li>
+<li><a href="#_album">Album</a>
+<ul class="sectlevel3">
+<li><a href="#_create">CREATE</a></li>
+<li><a href="#_get_user_profile_2">GET-USER-PROFILE</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -692,7 +698,7 @@ X-Frame-Options: DENY
 Content-Length: 173
 
 {
-  "jwt" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI3NTYiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNTk4NjA3NTIzLCJleHAiOjIyMjkzMjc1MjN9.agR-Pyap_p2R5IX2F86OH0IT6yX_2H4lbuT-gazhq98"
+  "jwt" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI3OTIiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNTk5MDQ3NDk2LCJleHAiOjIyMjk3Njc0OTZ9.YRtbkZ8jhADHkt6rvuXpVbcBEJk397x9fqIBrXU7deE"
 }</code></pre>
 </div>
 </div>
@@ -809,7 +815,7 @@ X-Frame-Options: DENY
 Content-Length: 176
 
 {
-  "jwt" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI3MDciLCJyb2xlcyI6WyJST0xFX1RFU1RFUiJdLCJpYXQiOjE1OTg2MDc1MjMsImV4cCI6MjIyOTMyNzUyM30.GMlJIoabFhdPMoCMczNYTT40cTKqTGdKbgDMxGp0LH8"
+  "jwt" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI3MDciLCJyb2xlcyI6WyJST0xFX1RFU1RFUiJdLCJpYXQiOjE1OTkwNDc0OTYsImV4cCI6MjIyOTc2NzQ5Nn0.Ozp4RLKIdjTUvxT0QnQSd-I9E-8YbMrmGnv6sxi3qqc"
 }</code></pre>
 </div>
 </div>
@@ -820,7 +826,7 @@ Content-Length: 176
 <dl>
 <dt class="hdlist1">user/delete</dt>
 <dd>
-<p>Get 으로 jwt 를 header에 넣어 보내주면 탈퇴됩니다.</p>
+<p>Get 방식. jwt 를 header에 넣어 Request하면 탈퇴됩니다.</p>
 </dd>
 </dl>
 </div>
@@ -848,7 +854,7 @@ Content-Length: 176
 <div class="title">Request</div>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /user/delete HTTP/1.1
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI3NTQiLCJyb2xlcyI6WyJST0xFX1RFU1RFUiJdLCJpYXQiOjE1OTg2MDc1MjIsImV4cCI6MjIyOTMyNzUyMn0.5DxfMmU706COewiEoLB9w8oVXyxJcMXQsD1YWEBfGMg
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI3OTAiLCJyb2xlcyI6WyJST0xFX1RFU1RFUiJdLCJpYXQiOjE1OTkwNDc0OTUsImV4cCI6MjIyOTc2NzQ5NX0.o7XNJpAT1z0fecvjXj14cn0uQ5pZNppJ5IGMjNMcOo0
 Accept: application/json
 Host: 90s.com</code></pre>
 </div>
@@ -1004,7 +1010,7 @@ Content-Length: 21
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">핸드폰 번호 확인</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Post</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user/phoneNum</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user/checkPhoneNum</p></td>
 </tr>
 </tbody>
 </table>
@@ -1152,7 +1158,7 @@ Content-Length: 22
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /user/updatePhoneNumber HTTP/1.1
 Content-Type: application/json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI3NTciLCJyb2xlcyI6WyJST0xFX1RFU1RFUiJdLCJpYXQiOjE1OTg2MDc1MjQsImV4cCI6MjIyOTMyNzUyNH0.vZE0LZ4MUOiCs733VbH0nBy1huAL1SYoDwy47VissLk
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI3OTMiLCJyb2xlcyI6WyJST0xFX1RFU1RFUiJdLCJpYXQiOjE1OTkwNDc0OTcsImV4cCI6MjIyOTc2NzQ5N30.3djPI6AaGPxO87e_jhzRCXHZchDV-ObweAUJpSBW3Wo
 Accept: application/json
 Content-Length: 32
 Host: 90s.com
@@ -1177,7 +1183,7 @@ X-Frame-Options: DENY
 Content-Length: 176
 
 {
-  "jwt" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI3NTciLCJyb2xlcyI6WyJST0xFX1RFU1RFUiJdLCJpYXQiOjE1OTg2MDc1MjQsImV4cCI6MjIyOTMyNzUyNH0.vZE0LZ4MUOiCs733VbH0nBy1huAL1SYoDwy47VissLk"
+  "jwt" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI3OTMiLCJyb2xlcyI6WyJST0xFX1RFU1RFUiJdLCJpYXQiOjE1OTkwNDc0OTcsImV4cCI6MjIyOTc2NzQ5N30.3djPI6AaGPxO87e_jhzRCXHZchDV-ObweAUJpSBW3Wo"
 }</code></pre>
 </div>
 </div>
@@ -1207,7 +1213,7 @@ Content-Length: 176
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">사용자 정보 조회</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Post</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user/getUserProfile</p></td>
 </tr>
 </tbody>
@@ -1236,7 +1242,7 @@ Content-Length: 176
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /user/getUserProfile HTTP/1.1
 Content-Type: application/json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI3NTYiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNTk4NjA3NTIzLCJleHAiOjIyMjkzMjc1MjN9.agR-Pyap_p2R5IX2F86OH0IT6yX_2H4lbuT-gazhq98
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI3OTIiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNTk5MDQ3NDk3LCJleHAiOjIyMjk3Njc0OTd9.DkdGl2WScCjq1GKs4otYn3Jt03Adb8Timf1zbqCjZ4A
 Accept: application/json
 Host: 90s.com</code></pre>
 </div>
@@ -1259,12 +1265,237 @@ Content-Length: 180
   "albumTotalCount" : 0,
   "albumPrintingCount" : 0,
   "userInfo" : {
-    "uid" : 756,
+    "uid" : 792,
     "email" : "tester@90s.com",
     "name" : "test",
     "phoneNum" : "010-9523-3114"
   }
 }</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_album"><a class="link" href="#_album">Album</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre>엘범 관련한 API 입니다. 엘범 만들기, 엘범 멤버 추가, 엘범 삭제 등이 있습니다.</pre>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Controller</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">URI</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">album/**</p></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<div class="sect3">
+<h4 id="_create"><a class="link" href="#_create">CREATE</a></h4>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">album/create</dt>
+<dd>
+<p>엘범을 만듭니다. JWT로 엘범 만든 사람을 구분하며, POST로 보내준 JSON 데이터로 엘범을 만듭니다.</p>
+</dd>
+</dl>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Desc</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">기능</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">방식</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">URI</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">엘범 만들기</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Post</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">album/create</p></td>
+</tr>
+</tbody>
+</table>
+<div class="listingblock">
+<div class="title">Request</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /album/create HTTP/1.1
+Content-Type: application/json
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI3OTQiLCJyb2xlcyI6WyJST0xFX1RFU1RFUiJdLCJpYXQiOjE1OTkwNDc0OTgsImV4cCI6MjIyOTc2NzQ5OH0.Q11UjakPDkryHoWD34Bo8CGnG0zNf7fmihJycPKkmRM
+Accept: application/json
+Content-Length: 94
+Host: 90s.com
+
+{
+  "coverUid" : 1,
+  "endDate" : "2020.08.01",
+  "photoLimit" : 5,
+  "name" : "NameOfAlbum"
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Response</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+Strict-Transport-Security: max-age=31536000 ; includeSubDomains
+X-Frame-Options: DENY
+Content-Length: 429
+
+{
+  "uid" : 795,
+  "name" : "NameOfAlbum",
+  "password" : "a034f1ca-35b3-49cc-89db-da2d74518e49",
+  "photoLimit" : 5,
+  "count" : 0,
+  "orderStatus" : {
+    "uid" : 1,
+    "status" : "pending"
+  },
+  "cover" : {
+    "uid" : 1,
+    "name" : "1990",
+    "path" : "static/1990.jpeg"
+  },
+  "endDate" : "2020-08-01",
+  "created_at" : "2020-09-02T20:51:38.694827",
+  "updated_at" : "2020-09-02T20:51:38.694854",
+  "complete" : false
+}</code></pre>
+</div>
+</div>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="_get_user_profile_2"><a class="link" href="#_get_user_profile_2">GET-USER-PROFILE</a></h4>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">album/getUserProfile</dt>
+<dd>
+<p>유저 정보를 이용해 해당 유저가 만들거나 속해져 있는 엘범 정보를 가져옵니다.</p>
+</dd>
+</dl>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Desc</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">기능</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">방식</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">URI</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">엘범 정보들 가져오기</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">album/getUserProfile</p></td>
+</tr>
+</tbody>
+</table>
+<div class="listingblock">
+<div class="title">Request</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /album/getAlbums HTTP/1.1
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI3OTciLCJyb2xlcyI6WyJST0xFX1RFU1RFUiJdLCJpYXQiOjE1OTkwNDc0OTksImV4cCI6MjIyOTc2NzQ5OX0.lAWr8_mLexBpQcmb8LpFN23Eq82WRlIJXglCgAO-nxE
+Accept: application/json
+Host: 90s.com</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Response</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+Strict-Transport-Security: max-age=31536000 ; includeSubDomains
+X-Frame-Options: DENY
+Content-Length: 1259
+
+[ {
+  "uid" : 798,
+  "name" : "NameOfAlbum 3",
+  "password" : "0519cff9-553b-473f-b1f6-d709f4109672",
+  "photoLimit" : 4,
+  "count" : 0,
+  "orderStatus" : {
+    "uid" : 1,
+    "status" : "pending"
+  },
+  "cover" : {
+    "uid" : 1,
+    "name" : "1990",
+    "path" : "static/1990.jpeg"
+  },
+  "endDate" : "2023-09-02",
+  "created_at" : "2020-09-02T20:51:40",
+  "updated_at" : "2020-09-02T20:51:40",
+  "complete" : false
+}, {
+  "uid" : 800,
+  "name" : "NameOfAlbum 3",
+  "password" : "24a46011-8533-4184-9bdd-263b4c5e1a90",
+  "photoLimit" : 4,
+  "count" : 0,
+  "orderStatus" : {
+    "uid" : 1,
+    "status" : "pending"
+  },
+  "cover" : {
+    "uid" : 1,
+    "name" : "1990",
+    "path" : "static/1990.jpeg"
+  },
+  "endDate" : "2023-09-02",
+  "created_at" : "2020-09-02T20:51:40",
+  "updated_at" : "2020-09-02T20:51:40",
+  "complete" : false
+}, {
+  "uid" : 802,
+  "name" : "NameOfAlbum 3",
+  "password" : "b8ecc05e-83f2-4b11-89e7-13eb372d384f",
+  "photoLimit" : 4,
+  "count" : 0,
+  "orderStatus" : {
+    "uid" : 1,
+    "status" : "pending"
+  },
+  "cover" : {
+    "uid" : 1,
+    "name" : "1990",
+    "path" : "static/1990.jpeg"
+  },
+  "endDate" : "2023-09-02",
+  "created_at" : "2020-09-02T20:51:40",
+  "updated_at" : "2020-09-02T20:51:40",
+  "complete" : false
+} ]</code></pre>
 </div>
 </div>
 </div>
@@ -1275,7 +1506,7 @@ Content-Length: 180
 <div id="footer">
 <div id="footer-text">
 Version 0.0.1-SNAPSHOT<br>
-Last updated 2020-08-28 18:38:18 +0900
+Last updated 2020-09-02 20:50:49 +0900
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/github.min.css">
