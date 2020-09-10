@@ -20,8 +20,6 @@ public class Initializer  implements CommandLineRunner {
 
 //        !! 실행 순서 중요 !!
 
-//        배송 관련 DB 데이터 세팅
-        orderInitializer.run();
 //        엘범커버 관련 DB 데이터 세팅
         coverInitializer.run();
 //        디폴트 유저 및 테스트 유저 관련 설정

@@ -113,7 +113,7 @@ apply plugin: 'io.spring.dependency-management'
 group = 'com.yapp.ios2'
 version = '0.0.1-SNAPSHOT'
 description = '90s'
-sourceCompatibility = 1.8
+sourceCompatibility = 11
 
 ext {
     snippetsDir = file('build/generated-snippets')

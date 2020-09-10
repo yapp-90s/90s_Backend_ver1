@@ -8,11 +8,10 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class JoinDto {
-    private String email;
+    private String emailKakao;
+    private String emailApple;
+    private String emailGoogle;
     private String password;
     private String name;
     private String phone;
-
-    private Boolean sosial;
-
 }

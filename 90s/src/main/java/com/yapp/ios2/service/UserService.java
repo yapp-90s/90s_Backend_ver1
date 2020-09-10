@@ -41,59 +41,42 @@ public class UserService implements UserDetailsService {
     NoticeAgreementRepository noticeAgreementRepository;
     private final PasswordEncoder passwordEncoder;
 
-//    일반 회원가입
-    public User join(String email, String name, String password, String phone){
-        User newUser = null;
-        NoticeAgreement newNoticeAgreement;
-        if(!checkEmail(email)){
-            newUser = User.builder()
-                    .email(email)
-                    .name(name)
-                    .password(passwordEncoder.encode(password))
-                    .roles(Collections.singletonList("ROLE_USER"))
-                    .phone(phone)
-                    .sosial(false)
-                    .build();
 
-            newNoticeAgreement = NoticeAgreement.builder()
-                    .build();
+    public User join(String emailKakao, String emailApple, String emailGoogle, String name, String phone){
 
-            noticeAgreementRepository.save(newNoticeAgreement);
+        User newUser = userRepository.findUserByPhone(phone).orElse(
+                User.builder()
+                        .roles(Collections.singletonList("ROLE_USER"))
+                        .phone(phone)
+                        .build()
+        );
 
-            userRepository.save(newUser);
-        }else{
-            throw new IllegalArgumentException("Existing Email");
+        if(!emailKakao.isBlank()){
+            newUser.setEmailKakao(emailKakao);
+        }else if(!emailApple.isBlank()){
+            newUser.setEmailApple(emailApple);
+        }else if(!emailGoogle.isBlank()) {
+            newUser.setEmailGoogle(emailGoogle);
         }
+
+        userRepository.save(newUser);
         return newUser;
     }
 
-//    카카오 회원가입
-    public User join(String email, String name, String phone){
-        User newUser = null;
-        if(!checkEmail(email)){
-            newUser = User.builder()
-                    .email(email)
-                    .name(name)
-                    .roles(Collections.singletonList("ROLE_USER"))
-                    .phone(phone)
-                    .sosial(true)
-                    .build();
+    public User login(String emailKakao, String emailApple, String emailGoogle){
 
-            userRepository.save(newUser);
-        }else{
-            throw new IllegalArgumentException("Existing Email");
+        User user = new User();
+
+        if(!emailKakao.isBlank()){
+            user = userRepository.findByEmailKakao(emailKakao)
+                    .orElseThrow(() -> new IllegalArgumentException("가입되지 않은 E-MAIL 입니다."));
+        }else if(!emailApple.isBlank()){
+            user = userRepository.findByEmailApple(emailApple)
+                    .orElseThrow(() -> new IllegalArgumentException("가입되지 않은 E-MAIL 입니다."));
+        }else if(!emailGoogle.isBlank()) {
+            user = userRepository.findByEmailGoogle(emailGoogle)
+                    .orElseThrow(() -> new IllegalArgumentException("가입되지 않은 E-MAIL 입니다."));
         }
-        return newUser;
-    }
-
-    public User login(String email, String password){
-
-        User user = userRepository.findByEmail(email)
-                .orElseThrow(() -> new IllegalArgumentException("가입되지 않은 E-MAIL 입니다."));
-        if (!passwordEncoder.matches(password, user.getPassword())) {
-            throw new IllegalArgumentException("잘못된 비밀번호입니다.");
-        }
-
         return user;
     }
 
@@ -122,29 +105,27 @@ public class UserService implements UserDetailsService {
 
     }
 
-    public User getUserByEmail(String email){
-        return userRepository.findByEmail(email)
+    public User getUserByPhone(String phone){
+        return userRepository.findUserByPhone(phone)
                 .orElseThrow(() -> new UsernameNotFoundException("가입되지 않은 E-MAIL"));
     }
-
-    public boolean checkEmail(String email){
-        return userRepository.findByEmail(email)
-                .isPresent();
-    }
+//
+//    public boolean checkEmail(String email){
+//        return userRepository.findByEmail(email)
+//                .isPresent();
+//    }
 
     @Override
     public UserDetails loadUserByUsername(String uid) throws UsernameNotFoundException {
         return userRepository.findById(Long.parseLong(uid))
                 .orElseThrow(() -> new UsernameNotFoundException("사용자를 찾을 수 없습니다."));
-//        return userRepository.findByEmail(username)
-//                .orElseThrow(() -> new UsernameNotFoundException("사용자를 찾을 수 없습니다."));
     }
 
-    public User updateEmail(User user, String email){
-        user.setEmail(email);
-        userRepository.save(user);
-        return user;
-    }
+//    public User updateEmail(User user, String email){
+//        user.setEmail(email);
+//        userRepository.save(user);
+//        return user;
+//    }
 
     public User findByPhone(String phoneNumber){
         User user = userRepository.findUserByPhone(phoneNumber).orElseThrow(

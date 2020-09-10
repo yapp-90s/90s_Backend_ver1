@@ -12,23 +12,15 @@ import com.yapp.ios2.vo.Album;
 import com.yapp.ios2.vo.Photo;
 import com.yapp.ios2.vo.User;
 import lombok.RequiredArgsConstructor;
-import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.core.annotation.Order;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.InputStream;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -56,9 +48,12 @@ public class DefaultUserInitializer{
     public void run(String... args) throws Exception {
 
         System.out.println("CREATE DEFAULT USER");
-        User defaultUser = userRepository.findByEmail("tryer@90s.com").orElse(
+        User defaultUser = userRepository.findUserByPhone("010-0000-0000").orElse(
                 User.builder()
-                        .email("tryer@90s.com")
+                        .emailKakao("tryer@90s.com")
+                        .emailGoogle("tryer@90s.com")
+                        .emailApple("tryer@90s.com")
+                        .phone("010-0000-0000")
                         .name("90s_tryer")
                         .roles(Collections.singletonList("ROLE_TRYER"))
                         .build()
@@ -119,19 +114,23 @@ public class DefaultUserInitializer{
         for(int i = 0; i < 31; i++){
             String name = "tester" + i;
 
-            if(userRepository.findByEmail(name + "@90s.com").isPresent()) continue;
+            if(userRepository.findUserByPhone(String.format("%011d",i)).isPresent()) continue;
 
-            User testUser = userRepository.findByEmail(name + "@90s.com").orElse(
+            User testUser = userRepository.findUserByPhone(String.format("%011d",i)).orElse(
                     User.builder()
-                            .email(name + "@90s.com")
+                            .emailKakao(name + "@90s.com")
+                            .emailApple(name + "@90s.com")
+                            .emailGoogle(name + "@90s.com")
                             .name("90s_" + name)
                             .password(passwordEncoder.encode("test"))
-                            .phone("010-0000-0000")
+                            .phone(String.format("%011d",i))
                             .roles(Collections.singletonList("ROLE_TESTER"))
                             .build()
             );
+
             userRepository.save(testUser);
             System.out.println(name + " JWT TOKEN : " + jwtProvider.createToken(testUser.getUid().toString(), testUser.getRoles()));
+
             for(int j = 0; j < 6; j++){
                 albumService.create(
                         "Album" + String.valueOf(ThreadLocalRandom.current().nextInt(100000, 1000000)),

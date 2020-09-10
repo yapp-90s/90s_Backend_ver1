@@ -32,16 +32,19 @@ public class User implements UserDetails {
     private String name;
 
     @Column
-    private String email;
+    private String emailKakao;
+
+    @Column
+    private String emailApple;
+
+    @Column
+    private String emailGoogle;
 
     @Column
     private String password;
 
     @Column
     private String phone;
-
-    @Column
-    private Boolean sosial;
 
     @CreationTimestamp
     private LocalDateTime created_at;
@@ -62,7 +65,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return email;
+        return phone;
     }
 
     @Override
@@ -85,12 +88,4 @@ public class User implements UserDetails {
         return true;
     }
 
-//    public User(){}
-
-    public User(String name, String email, String password, String phone) {
-        this.name = name;
-        this.email = email;
-        this.password = password;
-        this.phone = phone;
-    }
 }

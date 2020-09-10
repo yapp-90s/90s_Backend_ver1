@@ -10,7 +10,9 @@ import java.util.List;
 import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Long> {
-    Optional<User> findByEmail(String email);
+    Optional<User> findByEmailKakao(String emailKakao);
+    Optional<User> findByEmailApple(String emailApple);
+    Optional<User> findByEmailGoogle(String emailGoogle);
 
     @Query("select u from User u, AlbumOwner ao where ao.album = :album and ao.user = u")
     List<User> findUsersByAlbum(@Param("album") Album album);
