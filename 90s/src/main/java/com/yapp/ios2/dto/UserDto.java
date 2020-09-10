@@ -23,6 +23,13 @@ public class UserDto {
 
     @Data
     @AllArgsConstructor
+    @NoArgsConstructor
+    public static class PhoneNum{
+        private String phoneNum;
+    }
+
+    @Data
+    @AllArgsConstructor
     @NoArgsConstructor    public static class UserInfo{
         private Long uid;
         private String email;
