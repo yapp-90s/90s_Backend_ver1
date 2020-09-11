@@ -19,7 +19,7 @@ public class TestFunc {
                         .name("90s_tester")
                         .password(passwordEncoder.encode("test"))
                         .phone("010-0000-0000")
-                        .roles(Collections.singletonList("ROLE_TESTER"))
+                        .roles(Collections.singletonList("ROLE_USER"))
                         .build()
         );
         if(!userRepository.findByEmail(testUser.getEmail()).isPresent()){
