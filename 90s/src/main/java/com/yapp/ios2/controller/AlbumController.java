@@ -19,6 +19,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
@@ -50,6 +51,7 @@ public class AlbumController {
     }
 
     @PostMapping("/create")
+    @Secured("ROLE_USER")
     @ResponseBody
     public Album createAlbum(@AuthenticationPrincipal UserDetails user, @RequestBody AlbumDto.AlbumInfo albumInfo){
 
@@ -65,6 +67,7 @@ public class AlbumController {
     }
 
     @PostMapping("/addUser")
+    @Secured("ROLE_USER")
     public ResponseDto.BooleanDto addUser(@RequestBody AlbumOwnerDto.AlbumOwnerInfo albumOwnerInfo){
         AlbumOwner albumOwner = albumService.addOwner(albumOwnerInfo.getAlbumUid(), albumOwnerInfo.getUserUid(), albumOwnerInfo.getRole());
         ResponseDto.BooleanDto result = new ResponseDto.BooleanDto();
@@ -77,6 +80,7 @@ public class AlbumController {
     }
 
     @PostMapping("/removeUser")
+    @Secured("ROLE_USER")
     public ResponseDto.BooleanDto removeUser(@RequestBody AlbumOwnerDto.AlbumOwnerInfo albumOwnerInfo){
         albumService.removeOwner(
                 albumOwnerInfo.getAlbumUid(),
