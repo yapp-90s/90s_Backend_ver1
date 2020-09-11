@@ -114,16 +114,16 @@ public class DefaultUserInitializer{
         for(int i = 0; i < 31; i++){
             String name = "tester" + i;
 
-            if(userRepository.findUserByPhone(String.format("%011d",i)).isPresent()) continue;
+            if(userRepository.findUserByPhone(String.format("010-0000-%04d",i)).isPresent()) continue;
 
-            User testUser = userRepository.findUserByPhone(String.format("%011d",i)).orElse(
+            User testUser = userRepository.findUserByPhone(String.format("010-0000-%04d",i)).orElse(
                     User.builder()
                             .emailKakao(name + "@90s.com")
                             .emailApple(name + "@90s.com")
                             .emailGoogle(name + "@90s.com")
                             .name("90s_" + name)
                             .password(passwordEncoder.encode("test"))
-                            .phone(String.format("%011d",i))
+                            .phone(String.format("010-0000-%04d",i))
                             .roles(Collections.singletonList("ROLE_TESTER"))
                             .build()
             );
