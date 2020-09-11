@@ -1,7 +1,6 @@
 package com.yapp.ios2.config;
 
 import com.amazonaws.util.IOUtils;
-import com.google.common.collect.Lists;
 import com.yapp.ios2.repository.AlbumRepository;
 import com.yapp.ios2.repository.CoverRepository;
 import com.yapp.ios2.repository.PhotoRepository;
@@ -9,7 +8,6 @@ import com.yapp.ios2.repository.UserRepository;
 import com.yapp.ios2.service.AlbumService;
 import com.yapp.ios2.service.PhotoService;
 import com.yapp.ios2.vo.Album;
-import com.yapp.ios2.vo.Photo;
 import com.yapp.ios2.vo.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -12,42 +12,27 @@ import java.util.Collections;
 
 public class TestFunc {
 
-    public static String createTester(UserRepository userRepository, PasswordEncoder passwordEncoder, JwtProvider jwtProvider){
-        User testUser = userRepository.findByEmail("tester@90s.com").orElse(
-                User.builder()
-                        .email("tester@90s.com")
-                        .name("90s_tester")
-                        .password(passwordEncoder.encode("test"))
-                        .phone("010-0000-0000")
-                        .roles(Collections.singletonList("ROLE_TESTER"))
-                        .build()
-        );
-        if(!userRepository.findByEmail(testUser.getEmail()).isPresent()){
-            userRepository.save(testUser);
-        }
-        String jwt = jwtProvider.createToken(testUser.getUid().toString(), testUser.getRoles());
-        return jwt;
-    }
-
     public static User createTester(UserRepository userRepository, PasswordEncoder passwordEncoder){
-        User testUser = userRepository.findByEmail("tester@90s.com").orElse(
+        User testUser = userRepository.findUserByPhone("010-9523-3114").orElse(
                 User.builder()
-                        .email("tester@90s.com")
+                        .emailKakao("tester@90s.com")
                         .name("90s_tester")
                         .password(passwordEncoder.encode("test"))
-                        .phone("010-0000-0000")
+                        .phone("010-9523-3114")
                         .roles(Collections.singletonList("ROLE_TESTER"))
                         .build()
         );
-        if(!userRepository.findByEmail(testUser.getEmail()).isPresent()){
-            userRepository.save(testUser);
-        }
+        userRepository.save(testUser);
         return testUser;
     }
 
     public static void deleteTester(String jwt, UserService userService, UserRepository userRepository, JwtProvider jwtProvider){
-            User user = userRepository.findByEmail(jwtProvider.getUserName(jwt)).get();
+            User user = userRepository.findUserByPhone(jwtProvider.getUserName(jwt)).get();
             userService.delete(user);
+    }
+    public static void deleteTester(UserService userService, UserRepository userRepository, JwtProvider jwtProvider){
+        User user = userRepository.findUserByPhone("010-9523-3114").get();
+        userService.delete(user);
     }
 
     public static void createAlbums(Integer tot, User user, AlbumService albumService){

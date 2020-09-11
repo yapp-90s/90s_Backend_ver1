@@ -8,7 +8,6 @@ import com.yapp.ios2.repository.AlbumRepository;
 import com.yapp.ios2.service.AlbumService;
 import com.yapp.ios2.service.UserService;
 import com.yapp.ios2.vo.Album;
-import com.yapp.ios2.vo.AlbumOrder;
 import com.yapp.ios2.vo.AlbumOwner;
 import com.yapp.ios2.vo.User;
 import io.swagger.annotations.Api;
@@ -56,7 +55,7 @@ public class AlbumController {
         Album newAlbum = albumService.create(
                 albumInfo.getName(),
                 albumInfo.getPhotoLimit(),
-                userService.getUserByEmail(user.getUsername()).getUid(),
+                userService.getUserByPhone(user.getUsername()).getUid(),
                 albumInfo.getCoverUid(),
                 albumInfo.getEndDate()
         );
@@ -93,7 +92,7 @@ public class AlbumController {
     @GetMapping("/getAlbums")
     @ResponseBody
     public List<Album> getAlbums(@AuthenticationPrincipal UserDetails user){
-        List<Album> albums = albumService.getAlbumsByUser(userService.getUserByEmail(user.getUsername()));
+        List<Album> albums = albumService.getAlbumsByUser(userService.getUserByPhone(user.getUsername()));
 
         albums.forEach(
                 album -> {
@@ -157,18 +156,6 @@ public class AlbumController {
         return new HttpEntity(bytes, headers);
     }
 
-    @PostMapping("/createAlbumOrder")
-    public AlbumOrder createAlbumOrder(@RequestBody AlbumDto.AlbumOrderInfo albumOrderInfo){
-
-        AlbumOrder newAlbumOrder = albumService.createAlbumOrder(albumOrderInfo);
-
-        return newAlbumOrder;
-
-    }
-
-    @PostMapping("/changeAlbumOrderStatus")
-    public void changeAlbumOrderStatus() {
-    }
 
     @PostMapping("/getAlbumOwners")
     public List<AlbumOwnerDto.AlbumOwnerInfo> getAlbumOwners(@AuthenticationPrincipal User user, @RequestBody AlbumDto.AlbumUid albumUid){

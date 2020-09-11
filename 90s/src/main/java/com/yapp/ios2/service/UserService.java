@@ -18,8 +18,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -68,13 +66,13 @@ public class UserService implements UserDetailsService {
         User user = new User();
 
         if(!emailKakao.isBlank()){
-            user = userRepository.findByEmailKakao(emailKakao)
+            user = userRepository.findUserByEmailKakao(emailKakao)
                     .orElseThrow(() -> new IllegalArgumentException("가입되지 않은 E-MAIL 입니다."));
         }else if(!emailApple.isBlank()){
-            user = userRepository.findByEmailApple(emailApple)
+            user = userRepository.findUserByEmailApple(emailApple)
                     .orElseThrow(() -> new IllegalArgumentException("가입되지 않은 E-MAIL 입니다."));
         }else if(!emailGoogle.isBlank()) {
-            user = userRepository.findByEmailGoogle(emailGoogle)
+            user = userRepository.findUserByEmailGoogle(emailGoogle)
                     .orElseThrow(() -> new IllegalArgumentException("가입되지 않은 E-MAIL 입니다."));
         }
         return user;

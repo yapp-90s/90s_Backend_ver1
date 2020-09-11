@@ -26,14 +26,6 @@ public class AlbumService{
     AlbumRepository albumRepository;
 
     @Autowired
-    AlbumOrderRepository albumOrderRepository;
-
-    @Autowired
-    AlbumOrderPaperType1Repository albumOrderPaper1TypeRepository;
-    @Autowired
-    AlbumOrderPaperType2Repository albumOrderPaper2TypeRepository;
-
-    @Autowired
     UserRepository userRepository;
 
     @Autowired
@@ -41,12 +33,6 @@ public class AlbumService{
 
     @Autowired
     PhotoRepository photoRepository;
-
-    @Autowired
-    AlbumOrderPostTypeRepository albumOrderPostTypeRepository;
-
-    @Autowired
-    AlbumOrderStatusRepository albumOrderStatusRepository;
 
     @Autowired
     S3Service s3Service;
@@ -62,7 +48,6 @@ public class AlbumService{
                 .photoLimit(photoLimit)
                 .cover(coverRepository.findById(cover).get())
                 .endDate(endDate)
-                .orderStatus(albumOrderStatusRepository.findById(1L).get())
                 .count(0)
                 .build();
 
@@ -143,64 +128,12 @@ public class AlbumService{
         return album;
     }
 
-    public List<Album> getAlbumsNotReady(User user){
-        List<Album> albums = albumRepository.findByOrderStatus(user, albumOrderStatusRepository.findById(1L).get());
-        return albums;
-
-
-    }
-
     public List<Album> getAlbumsByUser(User user) {
 
         List<Album> albums = albumRepository.findByUser(user);
 
         return albums;
     }
-
-    public AlbumOrder createAlbumOrder(AlbumDto.AlbumOrderInfo albumOrderInfo){
-
-        AlbumOrder newAlbumOrder = AlbumOrder.builder()
-                .cost(albumOrderInfo.getCost())
-                .recipient(albumOrderInfo.getRecipient())
-                .postalCode(albumOrderInfo.getPostalCode())
-                .address(albumOrderInfo.getAddress())
-                .addressDetail(albumOrderInfo.getAddressDetail())
-                .phoneNum(albumOrderInfo.getPhoneNum())
-                .message(albumOrderInfo.getMessage())
-                .paperType1(albumOrderPaper1TypeRepository.findById(albumOrderInfo.getPaperType1()).get())
-                .paperType2(albumOrderPaper2TypeRepository.findById(albumOrderInfo.getPaperType2()).get())
-                .postType(albumOrderPostTypeRepository.findById(albumOrderInfo.getPostType()).get())
-                .build();
-
-        albumOrderRepository.save(newAlbumOrder);
-
-        return newAlbumOrder;
-    }
-
-    public void changeAlbumOrderStatus(Long albumUid, boolean status) {
-
-        AlbumOrder albumOrder = albumOrderRepository.findByAlbum(albumRepository.findById(albumUid).get())
-                .orElseThrow(() -> new IllegalArgumentException("가입되지 않은 E-MAIL 입니다."));
-
-        if (status) {
-//            forward
-            albumOrder.setStatus(
-                    albumOrderStatusRepository.findById(
-                            albumOrder.getStatus().getUid() + 1
-                    ).orElseThrow(() -> new IllegalArgumentException("이미 완료된 주문건입니다."))
-            );
-
-        } else {
-//            backward
-            albumOrder.setStatus(
-                    albumOrderStatusRepository.findById(
-                            albumOrder.getStatus().getUid() - 1
-                    ).orElseThrow(() -> new IllegalArgumentException("이미 입금 대기 주문건입니다."))
-            );
-        }
-    }
-
-
 
     public List<AlbumOwnerDto.AlbumOwnerInfo> getAlbumOwners(Long albumUid){
 
@@ -220,12 +153,9 @@ public class AlbumService{
         Album album = albumRepository.findById(albumUid).
                 orElseThrow(() -> new AlbumNotFoundException());
 
-//        만약 주문을 했다면 plus Count 를 하지 않아
-        if(!albumOrderRepository.findByAlbum(album).isPresent()){
-            Integer count = album.getCount();
-            album.setCount(++count);
-            albumRepository.save(album);
-        }
+        Integer count = album.getCount();
+        album.setCount(++count);
+        albumRepository.save(album);
 
     }
 

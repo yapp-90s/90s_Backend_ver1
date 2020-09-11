@@ -32,13 +32,11 @@ public class UserDto {
     @AllArgsConstructor
     @NoArgsConstructor    public static class UserInfo{
         private Long uid;
-        private String email;
         private String name;
         private String phoneNum;
 
         public UserInfo(User user){
             this.uid = user.getUid();
-            this.email = user.getEmail();
             this.name = user.getName();
             this.phoneNum = user.getPhone();
         }
@@ -49,7 +47,6 @@ public class UserDto {
     @NoArgsConstructor
     public static class UserProfile{
         private Integer albumTotalCount;
-        private Integer albumPrintingCount;
 
         private UserInfo userInfo;
 

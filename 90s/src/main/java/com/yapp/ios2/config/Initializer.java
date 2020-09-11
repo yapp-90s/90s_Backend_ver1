@@ -9,8 +9,6 @@ import org.springframework.stereotype.Component;
 public class Initializer  implements CommandLineRunner {
 
     @Autowired
-    OrderInitializer orderInitializer;
-    @Autowired
     CoverInitializer coverInitializer;
     @Autowired
     DefaultUserInitializer defaultUserInitializer;

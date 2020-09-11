@@ -49,15 +49,6 @@ public class UserController {
 //        return kakaoAuthDto;
 //    }
 
-    @ApiOperation(value = "회원가입", notes = "" +
-            "두가 방식으로 회원가입 할 수 있습니다." +
-            "<br>공통으로 받아오는 정보는 같습니다." +
-            "<br>이메일, 닉네임, 핸드폰번호 는 공통 필수 정보입니다. 또한 Sosial 여부를 보내주세요." +
-            "<br>1. 카카오 (sosial = true)" +
-            "<br>패스워드를 보내지 않아도 됩니다." +
-            "<br>2. 일반 회원가입( sosial = false)" +
-            "<br>패스워드를 보내주세요." +
-            "<br>리턴값은 JWT 입니다.")
     @PostMapping(value = "/join")
     @ResponseBody
     public ResponseDto.JwtDto join(@RequestBody JoinDto joinInfo) {
@@ -183,7 +174,6 @@ public class UserController {
 
         userProfile.setUserInfo(user);
         userProfile.setAlbumTotalCount(albumService.getAlbumsByUser(user).size());
-        userProfile.setAlbumPrintingCount(albumService.getAlbumsNotReady(user).size());
 
         return userProfile;
     }
