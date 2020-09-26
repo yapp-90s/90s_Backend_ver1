@@ -247,15 +247,15 @@ include::{snippets}/album-controller-test/create/http-request.adoc[]
 include::{snippets}/album-controller-test/create/http-response.adoc[]
 
 ***
-==== GET-USER-PROFILE
+==== GET-ALBUMS
 
-album/getUserProfile::
+album/getAlbums::
 JWT 유저 정보를 이용해 해당 유저가 만들거나 속해져 있는 엘범 정보를 가져옵니다.
 
 .Desc
 |===
 | 기능 | 방식 | URI
-| 엘범 정보들 가져오기 | GET | album/getUserProfile
+| 엘범 정보들 가져오기 | GET | album/getAlbums
 |===
 
 .Request
