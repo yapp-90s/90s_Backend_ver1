@@ -60,6 +60,7 @@ public class AlbumController {
                 albumInfo.getPhotoLimit(),
                 userService.getUserByEmail(user.getUsername()).getUid(),
                 albumInfo.getCoverUid(),
+                albumInfo.getLayoutUid(),
                 albumInfo.getEndDate()
         );
 

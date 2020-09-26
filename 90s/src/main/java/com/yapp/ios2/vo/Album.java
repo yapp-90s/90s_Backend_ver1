@@ -45,6 +45,9 @@ public class Album {
     private Cover cover;
 
     @Column
+    private Integer layout;
+
+    @Column
     private LocalDate endDate;
 
     @Column(columnDefinition = "boolean default false")

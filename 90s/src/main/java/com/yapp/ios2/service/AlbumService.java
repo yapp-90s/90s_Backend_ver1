@@ -54,13 +54,14 @@ public class AlbumService{
     @Autowired
     CoverRepository coverRepository;
 
-    public Album create(String name, Integer photoLimit, Long user, Long cover, LocalDate endDate) {
+    public Album create(String name, Integer photoLimit, Long user, Long cover, Integer layout, LocalDate endDate) {
 
         Album newAlbum = Album.builder()
                 .name(name)
                 .password(UUID.randomUUID().toString())
                 .photoLimit(photoLimit)
                 .cover(coverRepository.findById(cover).get())
+                .layout(layout)
                 .endDate(endDate)
                 .orderStatus(albumOrderStatusRepository.findById(1L).get())
                 .count(0)

@@ -32,8 +32,8 @@ public class AlbumDto {
         private Long albumUid;
         private Integer photoLimit;
         private String name;
-        private Long layoutUid;
         private Long coverUid;
+        private Integer layoutUid;
         private LocalDate endDate;
 
         public void setEndDate(String stringEndDate) {

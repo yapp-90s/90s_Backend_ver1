@@ -108,6 +108,7 @@ public class AlbumControllerTest{
         json.put("photoLimit", 5);
         json.put("name", "NameOfAlbum");
         json.put("coverUid", 1);
+        json.put("layoutUid", 1);
         json.put("endDate", "2020.08.01");
 
         jwt = TestFunc.createTester(userRepository, passwordEncoder ,jwtProvider);

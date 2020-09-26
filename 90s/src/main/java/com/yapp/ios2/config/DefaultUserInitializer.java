@@ -97,6 +97,7 @@ public class DefaultUserInitializer{
                         photos.get(i),
                         defaultUser.getUid(),
                         covers.get(i),
+                        1,
                         LocalDate.now()
                 );
 
@@ -138,6 +139,7 @@ public class DefaultUserInitializer{
                         7,
                         testUser.getUid(),
                         Long.valueOf(j+1),
+                        1,
                         LocalDate.now().plusDays(100)
                 );
             }

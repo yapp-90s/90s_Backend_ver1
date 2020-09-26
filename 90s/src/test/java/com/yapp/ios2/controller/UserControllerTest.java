@@ -111,7 +111,6 @@ public class UserControllerTest{
         mockMvc.perform(
                 post("/user/join")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .header("X-AUTH-TOKEN","eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwicm9sZXMiOlsiUk9MRV9UUllFUiJdLCJpYXQiOjE1OTMyMzI0MzIsImV4cCI6MjIyMzk1MjQzMn0.T6xSOI3n0NtHgK6abKt3A_aTcKTF5mT563pq6wBV4Nw")
                         .content(jsonString)
                         .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
