@@ -5,30 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="72a37ed6-ab00-4e26-bf9b-1a538bdd9fec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/vo/Film.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/vo/FilmType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/vo/PhotoInAlbum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/config/CoverInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/config/CoverInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/config/DefaultUserInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/config/DefaultUserInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/controller/AlbumController.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/controller/AlbumController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/AlbumDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/AlbumDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/UserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/repository/CoverRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/repository/CoverRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/repository/InvitationRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/repository/NoticeAgreementRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/repository/PhotoRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/vo/Album.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/vo/Album.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/vo/Cover.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/vo/AlbumType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/vo/Invitation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/vo/Layout.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/vo/NoticeAgreement.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/vo/Photo.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/vo/Photo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/vo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/vo/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/resources/static/docs/api-docs.html" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/resources/static/docs/api-docs.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,17 +99,6 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="90s.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.yapp.ios2.Application" />
@@ -154,7 +120,9 @@
       <workItem from="1608973082282" duration="1017000" />
       <workItem from="1610360294109" duration="3002000" />
       <workItem from="1610670448464" duration="5320000" />
-      <workItem from="1611471777183" duration="5617000" />
+      <workItem from="1611471777183" duration="5844000" />
+      <workItem from="1611478190340" duration="268000" />
+      <workItem from="1611478486070" duration="338000" />
     </task>
     <servers />
   </component>
