@@ -4,8 +4,6 @@ import com.yapp.ios2.config.JwtProvider;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.hibernate.validator.constraints.UniqueElements;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -44,10 +42,7 @@ public class User implements UserDetails {
     private String emailGoogle;
 
     @Column
-    private String password;
-
-    @Column
-    private String phone;
+    private String phoneNum;
 
     @CreationTimestamp
     private LocalDateTime created_at;
@@ -72,7 +67,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return phone;
+        return phoneNum;
     }
 
     @Override

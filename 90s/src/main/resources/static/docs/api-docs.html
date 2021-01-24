@@ -464,7 +464,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_album">Album</a>
 <ul class="sectlevel3">
 <li><a href="#_create">CREATE</a></li>
-<li><a href="#_get_user_profile_2">GET-USER-PROFILE</a></li>
+<li><a href="#_get_albums">GET-ALBUMS</a></li>
 </ul>
 </li>
 </ul>
@@ -669,7 +669,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /user/join HTTP/1.1
 Content-Type: application/json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwicm9sZXMiOlsiUk9MRV9UUllFUiJdLCJpYXQiOjE1OTMyMzI0MzIsImV4cCI6MjIyMzk1MjQzMn0.T6xSOI3n0NtHgK6abKt3A_aTcKTF5mT563pq6wBV4Nw
 Accept: application/json
 Content-Length: 123
 Host: 90s.com
@@ -698,7 +697,7 @@ X-Frame-Options: DENY
 Content-Length: 173
 
 {
-  "jwt" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4ODIiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNTk5ODEwMDY5LCJleHAiOjIyMzA1MzAwNjl9.jfN1fNQ6UlOIbyzwvWdH1hW3honRQnZJtfr25wIHbNQ"
+  "jwt" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1MTUiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjAxMTA0Nzc2LCJleHAiOjIyMzE4MjQ3NzZ9.c9Q4nM3xvR2cVL0gtdr10s9Qn3aAbZRCkK2yLpVC7kY"
 }</code></pre>
 </div>
 </div>
@@ -812,10 +811,10 @@ Pragma: no-cache
 Expires: 0
 Strict-Transport-Security: max-age=31536000 ; includeSubDomains
 X-Frame-Options: DENY
-Content-Length: 176
+Content-Length: 175
 
 {
-  "jwt" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI3MDciLCJyb2xlcyI6WyJST0xFX1RFU1RFUiJdLCJpYXQiOjE1OTk4MTAwNzAsImV4cCI6MjIzMDUzMDA3MH0.zrBHznku5Wed4BIAK3fYtUBsfWKXofRWwML0uSeMsxE"
+  "jwt" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1NCIsInJvbGVzIjpbIlJPTEVfVEVTVEVSIl0sImlhdCI6MTYwMTEwNDc3NiwiZXhwIjoyMjMxODI0Nzc2fQ.N7iM8oEp6qYm2jXB7Yydopk4GrxjEfIiS1xsnzab8sQ"
 }</code></pre>
 </div>
 </div>
@@ -854,7 +853,7 @@ Content-Length: 176
 <div class="title">Request</div>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /user/delete HTTP/1.1
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4ODAiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNTk5ODEwMDY4LCJleHAiOjIyMzA1MzAwNjh9.1hU0lIGw1U9Cc16iVALFN1vsPrfV18de-TZdLtCAZ4o
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1MTMiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjAxMTA0Nzc1LCJleHAiOjIyMzE4MjQ3NzV9.3LL10zmDLq2MiBc9CWnX2KMdD8ZpjKFNTOJLyfnG2vw
 Accept: application/json
 Host: 90s.com</code></pre>
 </div>
@@ -1158,7 +1157,7 @@ Content-Length: 22
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /user/updatePhoneNumber HTTP/1.1
 Content-Type: application/json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4ODMiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNTk5ODEwMDcxLCJleHAiOjIyMzA1MzAwNzF9.XpJECt0AeMYegTehBHxz51at78vboC3psx1Z10N8-O8
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1MTYiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjAxMTA0Nzc3LCJleHAiOjIyMzE4MjQ3Nzd9.diNFZyuJ0WXgSa7mOYmdz9JL7EJfoPHvbhC9_6dMdVE
 Accept: application/json
 Content-Length: 32
 Host: 90s.com
@@ -1183,7 +1182,7 @@ X-Frame-Options: DENY
 Content-Length: 173
 
 {
-  "jwt" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4ODMiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNTk5ODEwMDcyLCJleHAiOjIyMzA1MzAwNzJ9.wsim4WfFgzsKrpSoRWrB9-MUyM6vWTM2x09grUQVC1I"
+  "jwt" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1MTYiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjAxMTA0Nzc3LCJleHAiOjIyMzE4MjQ3Nzd9.diNFZyuJ0WXgSa7mOYmdz9JL7EJfoPHvbhC9_6dMdVE"
 }</code></pre>
 </div>
 </div>
@@ -1242,7 +1241,7 @@ Content-Length: 173
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /user/getUserProfile HTTP/1.1
 Content-Type: application/json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4ODIiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNTk5ODEwMDcwLCJleHAiOjIyMzA1MzAwNzB9.shCZn3gHoSRLhLtJ7qHgKDcjJ2j3D0Y2DB3cGSyNuqY
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1MTUiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjAxMTA0Nzc2LCJleHAiOjIyMzE4MjQ3NzZ9.c9Q4nM3xvR2cVL0gtdr10s9Qn3aAbZRCkK2yLpVC7kY
 Accept: application/json
 Host: 90s.com</code></pre>
 </div>
@@ -1265,7 +1264,7 @@ Content-Length: 180
   "albumTotalCount" : 0,
   "albumPrintingCount" : 0,
   "userInfo" : {
-    "uid" : 882,
+    "uid" : 515,
     "email" : "tester@90s.com",
     "name" : "test",
     "phoneNum" : "010-9523-3114"
@@ -1334,13 +1333,14 @@ Content-Length: 180
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /album/create HTTP/1.1
 Content-Type: application/json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4ODQiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNTk5ODEwMDcyLCJleHAiOjIyMzA1MzAwNzJ9.aw8QYRTpmQGLWT0r-Fe7iHVjOaANlB2A_xoKWv8LJ4g
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1MTciLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjAxMTA0Nzc3LCJleHAiOjIyMzE4MjQ3Nzd9.ejtazfKgSArQaxMlLF6NtjttEqVAVLxE6Z3PrA-jtgY
 Accept: application/json
-Content-Length: 94
+Content-Length: 113
 Host: 90s.com
 
 {
   "coverUid" : 1,
+  "layoutUid" : 1,
   "endDate" : "2020.08.01",
   "photoLimit" : 5,
   "name" : "NameOfAlbum"
@@ -1359,12 +1359,12 @@ Pragma: no-cache
 Expires: 0
 Strict-Transport-Security: max-age=31536000 ; includeSubDomains
 X-Frame-Options: DENY
-Content-Length: 429
+Content-Length: 445
 
 {
-  "uid" : 885,
+  "uid" : 518,
   "name" : "NameOfAlbum",
-  "password" : "584f11d6-8df2-4628-98ac-e45e31763784",
+  "password" : "4bc383e6-49f1-4726-94b6-980f00e0b572",
   "photoLimit" : 5,
   "count" : 0,
   "orderStatus" : {
@@ -1376,9 +1376,10 @@ Content-Length: 429
     "name" : "1990",
     "path" : "static/1990.jpeg"
   },
+  "layout" : 1,
   "endDate" : "2020-08-01",
-  "created_at" : "2020-09-11T16:41:13.116794",
-  "updated_at" : "2020-09-11T16:41:13.116902",
+  "created_at" : "2020-09-26T16:19:37.593753",
+  "updated_at" : "2020-09-26T16:19:37.593793",
   "complete" : false
 }</code></pre>
 </div>
@@ -1386,10 +1387,10 @@ Content-Length: 429
 <hr>
 </div>
 <div class="sect3">
-<h4 id="_get_user_profile_2"><a class="link" href="#_get_user_profile_2">GET-USER-PROFILE</a></h4>
+<h4 id="_get_albums"><a class="link" href="#_get_albums">GET-ALBUMS</a></h4>
 <div class="dlist">
 <dl>
-<dt class="hdlist1">album/getUserProfile</dt>
+<dt class="hdlist1">album/getAlbums</dt>
 <dd>
 <p>JWT 유저 정보를 이용해 해당 유저가 만들거나 속해져 있는 엘범 정보를 가져옵니다.</p>
 </dd>
@@ -1411,7 +1412,7 @@ Content-Length: 429
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">엘범 정보들 가져오기</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">album/getUserProfile</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">album/getAlbums</p></td>
 </tr>
 </tbody>
 </table>
@@ -1419,7 +1420,7 @@ Content-Length: 429
 <div class="title">Request</div>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /album/getAlbums HTTP/1.1
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI4ODciLCJyb2xlcyI6WyJST0xFX1RFU1RFUiJdLCJpYXQiOjE1OTk4MTAwNzUsImV4cCI6MjIzMDUzMDA3NX0.NUiDW2z4Pp-_Q99OJVTIBZjAUs3ksptVUJsAMPA5VXA
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1MjAiLCJyb2xlcyI6WyJST0xFX1RFU1RFUiJdLCJpYXQiOjE2MDExMDQ3NzgsImV4cCI6MjIzMTgyNDc3OH0.ONO4cx9OPjdqh3XLmCnbKKARk6s3rohxzlTmWJ7-lwE
 Accept: application/json
 Host: 90s.com</code></pre>
 </div>
@@ -1436,12 +1437,12 @@ Pragma: no-cache
 Expires: 0
 Strict-Transport-Security: max-age=31536000 ; includeSubDomains
 X-Frame-Options: DENY
-Content-Length: 1259
+Content-Length: 1307
 
 [ {
-  "uid" : 888,
+  "uid" : 521,
   "name" : "NameOfAlbum 3",
-  "password" : "ce7bea88-de56-46b7-8f64-cc32dc6adc13",
+  "password" : "3d9f9912-2f1b-4589-ac13-2fcc057261c9",
   "photoLimit" : 4,
   "count" : 0,
   "orderStatus" : {
@@ -1453,14 +1454,15 @@ Content-Length: 1259
     "name" : "1990",
     "path" : "static/1990.jpeg"
   },
-  "endDate" : "2023-09-11",
-  "created_at" : "2020-09-11T16:41:16",
-  "updated_at" : "2020-09-11T16:41:16",
+  "layout" : 1,
+  "endDate" : "2023-09-26",
+  "created_at" : "2020-09-26T16:19:39",
+  "updated_at" : "2020-09-26T16:19:39",
   "complete" : false
 }, {
-  "uid" : 890,
+  "uid" : 523,
   "name" : "NameOfAlbum 3",
-  "password" : "556197c0-7c5f-417b-abc0-528435c640be",
+  "password" : "beed864a-28a5-4a22-8230-4432618ae301",
   "photoLimit" : 4,
   "count" : 0,
   "orderStatus" : {
@@ -1472,14 +1474,15 @@ Content-Length: 1259
     "name" : "1990",
     "path" : "static/1990.jpeg"
   },
-  "endDate" : "2023-09-11",
-  "created_at" : "2020-09-11T16:41:16",
-  "updated_at" : "2020-09-11T16:41:16",
+  "layout" : 1,
+  "endDate" : "2023-09-26",
+  "created_at" : "2020-09-26T16:19:39",
+  "updated_at" : "2020-09-26T16:19:39",
   "complete" : false
 }, {
-  "uid" : 892,
+  "uid" : 525,
   "name" : "NameOfAlbum 3",
-  "password" : "b08f3851-18ae-48df-a4b2-21790db8e315",
+  "password" : "b59df5a7-e9a6-4f76-9f91-056b423c67ad",
   "photoLimit" : 4,
   "count" : 0,
   "orderStatus" : {
@@ -1491,9 +1494,10 @@ Content-Length: 1259
     "name" : "1990",
     "path" : "static/1990.jpeg"
   },
-  "endDate" : "2023-09-11",
-  "created_at" : "2020-09-11T16:41:16",
-  "updated_at" : "2020-09-11T16:41:16",
+  "layout" : 1,
+  "endDate" : "2023-09-26",
+  "created_at" : "2020-09-26T16:19:39",
+  "updated_at" : "2020-09-26T16:19:39",
   "complete" : false
 } ]</code></pre>
 </div>
@@ -1506,7 +1510,7 @@ Content-Length: 1259
 <div id="footer">
 <div id="footer-text">
 Version 0.0.1-SNAPSHOT<br>
-Last updated 2020-09-10 16:31:50 +0900
+Last updated 2020-09-26 16:15:04 +0900
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/github.min.css">
