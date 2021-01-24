@@ -5,7 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="72a37ed6-ab00-4e26-bf9b-1a538bdd9fec" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/90s/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/90s/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/vo/Film.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/vo/FilmType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/vo/PhotoInAlbum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/config/CoverInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/config/CoverInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/config/DefaultUserInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/config/DefaultUserInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/controller/AlbumController.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/controller/AlbumController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/AlbumDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/AlbumDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/repository/CoverRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/repository/CoverRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/repository/InvitationRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/repository/NoticeAgreementRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/repository/PhotoRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/vo/Album.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/vo/Album.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/vo/Cover.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/vo/AlbumType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/vo/Invitation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/vo/Layout.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/vo/NoticeAgreement.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/vo/Photo.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/vo/Photo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/vo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/vo/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/90s/src/main/resources/static/docs/api-docs.html" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/resources/static/docs/api-docs.html" afterDir="false" />
     </list>
@@ -68,10 +89,20 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1mBhpA0PLE0YLj3rBIrbOn1oMbN" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -83,6 +114,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -90,6 +122,17 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="90s.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.yapp.ios2.Application" />
@@ -111,7 +154,7 @@
       <workItem from="1608973082282" duration="1017000" />
       <workItem from="1610360294109" duration="3002000" />
       <workItem from="1610670448464" duration="5320000" />
-      <workItem from="1611471777183" duration="720000" />
+      <workItem from="1611471777183" duration="5617000" />
     </task>
     <servers />
   </component>
@@ -129,5 +172,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

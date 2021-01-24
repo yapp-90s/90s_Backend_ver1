@@ -12,7 +12,6 @@ import com.yapp.ios2.vo.AlbumOwner;
 import com.yapp.ios2.vo.User;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Role;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -22,7 +21,6 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.security.RolesAllowed;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
@@ -144,7 +142,7 @@ public class AlbumController {
         Album album =albumService.getAlbum(albumUid.getUid());
 
         ClassPathResource resource = new ClassPathResource(
-                album.getCover().getPath()
+                album.getAlbumType().getPath()
         );
 
         byte[] bytes = IOUtils.toByteArray(resource.getInputStream());

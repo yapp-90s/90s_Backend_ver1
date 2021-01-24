@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 
 @Builder
 @Entity
-@Table(name = "user")
+@Table(name = "User")
 @Getter
 @Setter
 @ToString
@@ -31,6 +31,10 @@ public class User implements UserDetails {
 
     @Column
     private String name;
+
+    // 패스워드는 쓰지 않지만 UserDetails를 쓰기 위해 어쩔수없이 password를 넣음.
+    @Column
+    private String password;
 
     @Column
     private String emailKakao;

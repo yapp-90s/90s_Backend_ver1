@@ -4,11 +4,9 @@ import com.yapp.ios2.config.exception.UserNotFoundException;
 import com.yapp.ios2.dto.UserDto;
 import com.yapp.ios2.repository.AlbumOwnerRepository;
 import com.yapp.ios2.repository.AlbumRepository;
-import com.yapp.ios2.repository.NoticeAgreementRepository;
 import com.yapp.ios2.repository.UserRepository;
 import com.yapp.ios2.vo.Album;
 import com.yapp.ios2.vo.AlbumOwner;
-import com.yapp.ios2.vo.NoticeAgreement;
 import com.yapp.ios2.vo.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,8 +33,6 @@ public class UserService implements UserDetailsService {
     @Autowired
     AlbumService albumService;
 
-    @Autowired
-    NoticeAgreementRepository noticeAgreementRepository;
     private final PasswordEncoder passwordEncoder;
 
 
@@ -45,7 +41,7 @@ public class UserService implements UserDetailsService {
         User newUser = userRepository.findUserByPhone(phone).orElse(
                 User.builder()
                         .roles(Collections.singletonList("ROLE_USER"))
-                        .phone(phone)
+                        .phoneNum(phone)
                         .build()
         );
 
@@ -107,11 +103,6 @@ public class UserService implements UserDetailsService {
         return userRepository.findUserByPhone(phone)
                 .orElseThrow(() -> new UsernameNotFoundException("가입되지 않은 E-MAIL"));
     }
-//
-//    public boolean checkEmail(String email){
-//        return userRepository.findByEmail(email)
-//                .isPresent();
-//    }
 
     @Override
     public UserDetails loadUserByUsername(String uid) throws UsernameNotFoundException {
@@ -119,11 +110,6 @@ public class UserService implements UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException("사용자를 찾을 수 없습니다."));
     }
 
-//    public User updateEmail(User user, String email){
-//        user.setEmail(email);
-//        userRepository.save(user);
-//        return user;
-//    }
 
     public User findByPhone(String phoneNumber){
         User user = userRepository.findUserByPhone(phoneNumber).orElseThrow(
@@ -135,7 +121,7 @@ public class UserService implements UserDetailsService {
     }
 
     public User updatePhoneNumber(User user, String phoneNumber){
-        user.setPhone(phoneNumber);
+        user.setPhoneNum(phoneNumber);
         userRepository.save(user);
         return user;
     }
@@ -144,32 +130,6 @@ public class UserService implements UserDetailsService {
         user.setPassword(passwordEncoder.encode(password));
         userRepository.save(user);
         return user;
-    }
-
-    public NoticeAgreement getNoticeAgreement(User user){
-        return noticeAgreementRepository.findByUser(user);
-    }
-
-    public NoticeAgreement updateAgreement(User user, UserDto.NoticeAgreement noticeAgreement){
-
-        NoticeAgreement noticeAgreementVo = noticeAgreementRepository.findByUser(user);
-
-        if(noticeAgreementVo.getAlbumEndNotice()^noticeAgreement.getAlbumEndNotice()){
-            noticeAgreementVo.setAlbumEndNotice(noticeAgreement.getAlbumEndNotice());
-        }
-        if(noticeAgreementVo.getEventNotice()^noticeAgreement.getEventNotice()){
-            noticeAgreementVo.setEventNotice(noticeAgreement.getEventNotice());
-        }
-        if(noticeAgreementVo.getInvitationNotice()^noticeAgreement.getInvitationNotice()){
-            noticeAgreementVo.setInvitationNotice(noticeAgreement.getInvitationNotice());
-        }
-        if(noticeAgreementVo.getOrderNotice()^noticeAgreement.getOrderNotice()){
-            noticeAgreementVo.setOrderNotice(noticeAgreement.getOrderNotice());
-        }
-
-        noticeAgreementRepository.save(noticeAgreementVo);
-
-        return noticeAgreementVo;
     }
 
 }

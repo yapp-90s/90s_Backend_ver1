@@ -10,32 +10,34 @@ import java.time.LocalDateTime;
 
 @Builder
 @Entity
-@Table(name = "invitation")
+@Table(name = "PhotoInAlbum")
 @Getter
 @Setter
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class Invitation {
-
+public class PhotoInAlbum {
     @Id
     @GeneratedValue
     private Long uid;
 
     @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinColumn(name ="album_uid", referencedColumnName="uid")
+    @JoinColumn(name ="album_uid")
     private Album album;
 
     @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinColumn(name ="user_uid")
-    private User user;
+    @JoinColumn(name ="photo_uid")
+    private Photo photo;
 
     @Column
-    private String code;
+    private Integer paperNum;
+
+    @Column
+    private Integer order;
 
     @CreationTimestamp
-    private LocalDateTime created_at;
+    private LocalDateTime createdAt;
 
 }

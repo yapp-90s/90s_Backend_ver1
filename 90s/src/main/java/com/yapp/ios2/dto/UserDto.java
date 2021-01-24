@@ -1,10 +1,7 @@
 package com.yapp.ios2.dto;
 
-import com.yapp.ios2.vo.NoticeAgreement;
 import com.yapp.ios2.vo.User;
 import lombok.*;
-
-import javax.persistence.Column;
 
 @Getter
 @Setter
@@ -38,7 +35,7 @@ public class UserDto {
         public UserInfo(User user){
             this.uid = user.getUid();
             this.name = user.getName();
-            this.phoneNum = user.getPhone();
+            this.phoneNum = user.getPhoneNum();
         }
     }
 
@@ -52,26 +49,6 @@ public class UserDto {
 
         public void setUserInfo(User user){
             this.userInfo = new UserInfo(user);
-        }
-    }
-
-    @Data
-    @AllArgsConstructor
-    @NoArgsConstructor
-    public static class NoticeAgreement{
-        private Boolean eventNotice;
-
-        private Boolean albumEndNotice;
-
-        private Boolean invitationNotice;
-
-        private Boolean orderNotice;
-
-        public NoticeAgreement(com.yapp.ios2.vo.NoticeAgreement noticeAgreement){
-            this.eventNotice = noticeAgreement.getEventNotice();
-            this.albumEndNotice = noticeAgreement.getAlbumEndNotice();
-            this.invitationNotice = noticeAgreement.getInvitationNotice();
-            this.orderNotice = noticeAgreement.getOrderNotice();
         }
     }
 

@@ -1,38 +1,30 @@
 package com.yapp.ios2.vo;
 
-
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Builder
 @Entity
-@Table(name = "Album")
+@Table(name = "FilmType")
 @Getter
 @Setter
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class Album {
-
+public class FilmType {
     @Id
     @GeneratedValue
     private Long uid;
 
-    @Column(length = 45, nullable = false)
+    @Column(length = 45, nullable = true)
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name ="album_type", referencedColumnName="uid")
-    private AlbumType albumType;
-
-
-    @Column(columnDefinition = "boolean default false")
-    private boolean isComplete;
+    @Column(length = 999, nullable = true)
+    private String description;
 
     @CreationTimestamp
     private LocalDateTime createdAt;
@@ -40,10 +32,7 @@ public class Album {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-    @Column
-    private LocalDateTime completedAt;
+    @Column(nullable = true)
+    private LocalDateTime releasedAt;
 
-    public Album(String name) {
-        this.name = name;
-    }
 }
