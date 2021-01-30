@@ -19,6 +19,7 @@ logs/*
 
 ### IntelliJ IDEA ###
 .idea
+.idea/*
 .gradle
 *.iws
 *.iml

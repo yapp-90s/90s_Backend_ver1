@@ -5,45 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="72a37ed6-ab00-4e26-bf9b-1a538bdd9fec" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/config/exception/BusinessException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/config/exception/EntityNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/config/exception/ErrorCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/config/exception/ErrorResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/config/exception/ExceptionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/config/exception/InvalidValueException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/repository/PhotoRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/90s/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/docs/asciidoc/api-docs.adoc" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/docs/asciidoc/api-docs.adoc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/config/exception/UserNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/config/exception/UserNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/controller/AlbumController.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/controller/AlbumController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/controller/PhotoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/controller/PhotoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/AlbumDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/AlbumDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/AlbumOwnerDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/AlbumOwnerDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/KakaoAuthDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/KakaoAuthDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/KakaoProfileDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/KakaoProfileDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/LoginDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/LoginDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/PhotoDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/PhotoDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/ResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/ResponseDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/SmsDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/SmsDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/repository/AlbumOwnerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/repository/AlbumOwnerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/repository/AlbumRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/repository/AlbumRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/repository/CoverRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/repository/CoverRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/service/AlbumService.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/service/AlbumService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/service/KakaoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/service/KakaoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/service/PhotoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/service/PhotoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/service/S3Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/service/S3Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/service/SnsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/service/SnsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/vo/PhotoInAlbum.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/vo/PhotoInAlbum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/main/resources/static/docs/api-docs.html" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/resources/static/docs/api-docs.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/test/java/com/yapp/ios2/controller/TestFunc.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/test/java/com/yapp/ios2/controller/TestFunc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/src/test/java/com/yapp/ios2/controller/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/test/java/com/yapp/ios2/controller/UserControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/application-debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/application-debug.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/90s/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
