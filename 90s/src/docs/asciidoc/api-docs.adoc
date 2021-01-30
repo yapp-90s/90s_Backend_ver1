@@ -62,37 +62,10 @@ FC JANYANG CAPTAIN;
 
 
 ***
-==== JOIN
-
-user/join::
-회원가입의 방식은 2가지이며, 각각의 방식에 따라 필요한 값이 달라집니다. +
-일반 로그인::
-social 파라미터를 false 로 보내며, password를 보내야 합니다.
-카카오 로그인::
-social 파라미터를 true 로 보내며, 따로 password를 보내지 않아도 됩니다.
-
-.Desc
-|===
-| 기능 | 방식 | URI
-| 회원가입 | Post | user/join
-|===
-
-.Request Fields
-include::{snippets}/user-controller-test/join/request-fields.adoc[]
-.Request
-include::{snippets}/user-controller-test/join/http-request.adoc[]
-.Response
-include::{snippets}/user-controller-test/join/http-response.adoc[]
-
-***
 ==== LOGIN
 
 user/login::
-로그인 방식 또한 회원가입처럼 2가지 입니다.
-일반 로그인::
-social 파라미터를 false 로 보내며, password를 보내야 합니다.
-카카오 로그인::
-social 파라미터를 true 로 보내며, 따로 password를 보내지 않아도 됩니다.
+카카오, 구글, 애플 이메일 중 1개를 POST 합니다.
 
 .Desc
 |===

@@ -121,7 +121,7 @@ ext {
 
 asciidoctor {
     inputs.dir snippetsDir
-    dependsOn test
+//    dependsOn test
     setBackend("")
 //    outputDir './src/main/resources/static/docs'
     copy {

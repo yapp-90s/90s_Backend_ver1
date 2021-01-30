@@ -1,19 +1,16 @@
 package com.yapp.ios2.controller;
 
 import com.yapp.ios2.dto.*;
-import com.yapp.ios2.service.AlbumService;
-import com.yapp.ios2.service.SnsService;
+//import com.yapp.ios2.service.AlbumService;
+//import com.yapp.ios2.service.SnsService;
 import com.yapp.ios2.config.JwtProvider;
 import com.yapp.ios2.service.UserService;
 import com.yapp.ios2.vo.User;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
+import javax.validation.Valid;
 
 @Api(tags = {"1. User"})
 @RestController
@@ -22,70 +19,56 @@ public class UserController {
 
     @Autowired
     UserService userService;
-    @Autowired
-    SnsService snsService;
-    @Autowired
-    AlbumService albumService;
+//    @Autowired
+//    SnsService snsService;
+//    @Autowired
+//    AlbumService albumService;
 
 //    KakaoService kakaoService;
 
     @Autowired
     JwtProvider jwtProvider;
 
-//    @PostMapping(value = "/kakao/getInfo")
-//    @ResponseBody
-//    public KakaoProfileDto getInfoFromKakao(@RequestBody Map<String, String> json) {
-//        System.out.println("Called getInfoFromKakao");
-//        KakaoProfileDto kakaoProfileDto = kakaoService.getKakaoProfile(json.get("accesskey"));
-//
-//        return kakaoProfileDto;
-//    }
-//    @PostMapping(value = "/kakao/getToken")
-//    @ResponseBody
-//    public KakaoAuthDto getTokenFromKakao(@RequestBody Map<String, String> json) {
-//        System.out.println("Called getTokenFromKakao");
-//        KakaoAuthDto kakaoAuthDto = kakaoService.getKakaoTokenInfo(json.get("code"));
-//
-//        return kakaoAuthDto;
-//    }
 
-    @PostMapping(value = "/join")
+//    @PostMapping(value = "/join")
+//    @ResponseBody
+//    public ResponseDto.JwtDto join(@RequestBody JoinDto joinInfo) {
+//
+//        String jwt;
+//        User newUser;
+//
+//        if(!joinInfo.getEmailKakao().isBlank()){
+//            newUser = userService.join(joinInfo.getEmailKakao(), null, null, joinInfo.getName(), joinInfo.getPhone());
+//        }else if(!joinInfo.getEmailApple().isBlank()){
+//            newUser = userService.join(null, joinInfo.getEmailApple(), null, joinInfo.getName(), joinInfo.getPhone());
+//        }else{
+//            newUser = userService.join(null, null, joinInfo.getEmailGoogle(), joinInfo.getName(), joinInfo.getPhone());
+//        }
+//
+//        jwt = jwtProvider.createToken(newUser.getUid().toString(), newUser.getRoles());
+//
+//        ResponseDto.JwtDto jwtDto = new ResponseDto.JwtDto();
+//        jwtDto.setJwt(jwt);
+//
+//        return jwtDto;
+//    }
+    @GetMapping(value = "/")
     @ResponseBody
-    public ResponseDto.JwtDto join(@RequestBody JoinDto joinInfo) {
-
-        String jwt;
-        User newUser;
-
-        if(!joinInfo.getEmailKakao().isBlank()){
-            newUser = userService.join(joinInfo.getEmailKakao(), null, null, joinInfo.getName(), joinInfo.getPhone());
-        }else if(!joinInfo.getEmailApple().isBlank()){
-            newUser = userService.join(null, joinInfo.getEmailApple(), null, joinInfo.getName(), joinInfo.getPhone());
-        }else{
-            newUser = userService.join(null, null, joinInfo.getEmailGoogle(), joinInfo.getName(), joinInfo.getPhone());
-        }
-
-        jwt = jwtProvider.createToken(newUser.getUid().toString(), newUser.getRoles());
-
-        ResponseDto.JwtDto jwtDto = new ResponseDto.JwtDto();
-        jwtDto.setJwt(jwt);
-
-        return jwtDto;
+    public ResponseDto.DataDto home(){
+        ResponseDto.DataDto dataDto = new ResponseDto.DataDto();
+        dataDto.setData("Hello This url is about HOME");
+        return dataDto;
     }
 
-    @ApiOperation(value = "로그인", notes = "" +
-            "두가지 방식으로 로그인할지 수 있습니다." +
-            "<br>1. 카카오( sosial = true )" +
-            "<br>카카오에서 받아온 email을 넘겨주세요." +
-            "<br>2. 일반 로그인( sosial = false )" +
-            "<br>이메일, 비밀번호를 보내주세요." +
-            "<br>리턴값은 JWT 입니다.")
+
     @PostMapping(value = "/login")
     @ResponseBody
-    public ResponseDto.JwtDto login(@RequestBody LoginDto loginInfo){
-
-        String jwt = null;
+    public ResponseDto.JwtDto login(@Valid @RequestBody LoginDto loginDto){
 
 
+        User user = userService.login(loginDto.getEmailKakao(), loginDto.getEmailApple(), loginDto.getEmailGoogle());
+
+        String jwt = jwtProvider.createToken(user.getUid().toString(), user.getRoles());
 
         ResponseDto.JwtDto jwtDto = new ResponseDto.JwtDto();
         jwtDto.setJwt(jwt);
@@ -111,23 +94,17 @@ public class UserController {
 //        return booleanResultDto;
 //    }
 
-    @ApiOperation(value = "문자 인증", notes = "" +
-            "문자 인증을 진행합니다." +
-            "<br>Param으로 넘긴 핸드폰 번호에 6자리의 난수가 담긴 sms를 보냅니다." +
-            "<br>핸드폰 번호는 01012341234 형태로 보내주세요." +
-            "<br>Response 값은 발생한 6자리의 난수입니다."
-            )
-    @PostMapping("/checkPhoneNum")
-    @ResponseBody
-    public SmsDto.SmsResponseDto sendSms(@RequestBody SmsDto.SmsRequestDto smsRequestDto){
-
-        String num = snsService.send(smsRequestDto.getPhoneNumber());
-        SmsDto.SmsResponseDto smsResponseDto = new SmsDto.SmsResponseDto();
-        smsResponseDto.setNum(num);
-
-        return smsResponseDto;
-
-    }
+//    @PostMapping("/checkPhoneNum")
+//    @ResponseBody
+//    public SmsDto.SmsResponseDto sendSms(@RequestBody SmsDto.SmsRequestDto smsRequestDto){
+//
+//        String num = snsService.send(smsRequestDto.getPhoneNumber());
+//        SmsDto.SmsResponseDto smsResponseDto = new SmsDto.SmsResponseDto();
+//        smsResponseDto.setNum(num);
+//
+//        return smsResponseDto;
+//
+//    }
 
 //    @ApiOperation(value = "이메일 변경", notes = "" +
 //            "이메일을 변경합니다." +
@@ -165,37 +142,37 @@ public class UserController {
 //        return jwtDto;
 //    }
 
-    @GetMapping("/getUserProfile")
-    @ResponseBody
-    public UserDto.UserProfile getUserProile(@AuthenticationPrincipal UserDetails userDetail){
-        User user = userService.getUserByPhone(userDetail.getUsername());
-
-        UserDto.UserProfile userProfile = new UserDto.UserProfile();
-
-        userProfile.setUserInfo(user);
-        userProfile.setAlbumTotalCount(albumService.getAlbumsByUser(user).size());
-
-        return userProfile;
-    }
-
-    @ApiOperation(value = "비밀번호 변경", notes = "" +
-            "비밀번호를 변경합니다." +
-            "<br>변경할 비밀번호를 보내주세요." +
-            "<br>핸드폰 번호를 활용해 사용자의 비밀번호를 변경합니다."
-    )
-    @PostMapping("/updatePassword")
-    @ResponseBody
-    public ResponseDto.JwtDto updatePassword(@RequestBody UserDto.AccountInfo userDto){
-
-        User user = userService.findByPhone(userDto.getPhoneNum());
-        userService.updatePassword(user, userDto.getPassword());
-
-        String jwt = jwtProvider.createToken(user.getUid().toString(), user.getRoles());
-        ResponseDto.JwtDto jwtDto = new ResponseDto.JwtDto();
-        jwtDto.setJwt(jwt);
-
-        return jwtDto;
-    }
+//    @GetMapping("/getUserProfile")
+//    @ResponseBody
+//    public UserDto.UserProfile getUserProile(@AuthenticationPrincipal UserDetails userDetail){
+//        User user = userService.getUserByPhone(userDetail.getUsername());
+//
+//        UserDto.UserProfile userProfile = new UserDto.UserProfile();
+//
+//        userProfile.setUserInfo(user);
+//        userProfile.setAlbumTotalCount(albumService.getAlbumsByUser(user).size());
+//
+//        return userProfile;
+//    }
+//
+//    @ApiOperation(value = "비밀번호 변경", notes = "" +
+//            "비밀번호를 변경합니다." +
+//            "<br>변경할 비밀번호를 보내주세요." +
+//            "<br>핸드폰 번호를 활용해 사용자의 비밀번호를 변경합니다."
+//    )
+//    @PostMapping("/updatePassword")
+//    @ResponseBody
+//    public ResponseDto.JwtDto updatePassword(@RequestBody UserDto.AccountInfo userDto){
+//
+//        User user = userService.findByPhone(userDto.getPhoneNum());
+//        userService.updatePassword(user, userDto.getPassword());
+//
+//        String jwt = jwtProvider.createToken(user.getUid().toString(), user.getRoles());
+//        ResponseDto.JwtDto jwtDto = new ResponseDto.JwtDto();
+//        jwtDto.setJwt(jwt);
+//
+//        return jwtDto;
+//    }
 
 //    @PostMapping("/findEmail")
 //    @ResponseBody
@@ -206,22 +183,22 @@ public class UserController {
 //        return userDto;
 //    }
 
-    @GetMapping("/getDefaultUser")
-    @ResponseBody
-    public ResponseDto.JwtDto getDefaultUser(){
-        User user = userService.getUserByPhone("010-0000-0000");
-        String jwt = jwtProvider.createToken(user.getUid().toString(), user.getRoles());
-        ResponseDto.JwtDto jwtDto = new ResponseDto.JwtDto();
-        jwtDto.setJwt(jwt);
-
-        return jwtDto;
-    }
-
-    @GetMapping("/delete")
-    @ResponseBody
-    public void delete(@AuthenticationPrincipal UserDetails userDetails){
-        User user = userService.getUserByPhone(userDetails.getUsername());
-        userService.delete(user);
-    }
+//    @GetMapping("/getDefaultUser")
+//    @ResponseBody
+//    public ResponseDto.JwtDto getDefaultUser(){
+//        User user = userService.getUserByPhone("010-0000-0000");
+//        String jwt = jwtProvider.createToken(user.getUid().toString(), user.getRoles());
+//        ResponseDto.JwtDto jwtDto = new ResponseDto.JwtDto();
+//        jwtDto.setJwt(jwt);
+//
+//        return jwtDto;
+//    }
+//
+//    @GetMapping("/delete")
+//    @ResponseBody
+//    public void delete(@AuthenticationPrincipal UserDetails userDetails){
+//        User user = userService.getUserByPhone(userDetails.getUsername());
+//        userService.delete(user);
+//    }
 
 }

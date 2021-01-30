@@ -5,7 +5,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="72a37ed6-ab00-4e26-bf9b-1a538bdd9fec" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/config/exception/BusinessException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/config/exception/EntityNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/config/exception/ErrorCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/config/exception/ErrorResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/config/exception/ExceptionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/config/exception/InvalidValueException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/repository/PhotoRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/90s/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/docs/asciidoc/api-docs.adoc" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/docs/asciidoc/api-docs.adoc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/config/exception/UserNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/config/exception/UserNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/controller/AlbumController.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/controller/AlbumController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/controller/PhotoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/controller/PhotoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/AlbumDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/AlbumDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/AlbumOwnerDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/AlbumOwnerDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/KakaoAuthDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/KakaoAuthDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/KakaoProfileDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/KakaoProfileDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/LoginDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/LoginDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/PhotoDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/PhotoDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/ResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/ResponseDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/SmsDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/dto/SmsDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/repository/AlbumOwnerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/repository/AlbumOwnerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/repository/AlbumRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/repository/AlbumRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/repository/CoverRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/repository/CoverRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/service/AlbumService.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/service/AlbumService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/service/KakaoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/service/KakaoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/service/PhotoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/service/PhotoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/service/S3Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/service/S3Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/service/SnsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/service/SnsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/vo/PhotoInAlbum.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/java/com/yapp/ios2/vo/PhotoInAlbum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/main/resources/static/docs/api-docs.html" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/main/resources/static/docs/api-docs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/test/java/com/yapp/ios2/controller/TestFunc.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/test/java/com/yapp/ios2/controller/TestFunc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/src/test/java/com/yapp/ios2/controller/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/90s/src/test/java/com/yapp/ios2/controller/UserControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/application-debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/application-debug.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,24 +79,6 @@
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="build" type="c8890929:TasksNode$1" />
               </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="90s" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build setup" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="90s" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="documentation" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="90s" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="help" type="c8890929:TasksNode$1" />
-              </path>
             </expand>
             <select />
           </tree_state>
@@ -69,6 +89,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -85,6 +106,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
@@ -96,18 +119,109 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Gradle.90s [bootJar]">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="90s [bootJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/90s" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="bootJar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="UserControllerTest.login" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/90s" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.yapp.ios2.controller.UserControllerTest.login&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="UserControllerTest.login_ErrorCode_C001" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/90s" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.yapp.ios2.controller.UserControllerTest.login_ErrorCode_C001&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="90s.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.yapp.ios2.Application" />
       <option name="ACTIVE_PROFILES" value="dev" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2">
+        <option name="Gradle.BeforeRunTask" enabled="true" tasks="asciidoctor" externalProjectPath="$PROJECT_DIR$/90s" vmOptions="" scriptParameters="" />
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Gradle.UserControllerTest.login" />
+      <item itemvalue="Gradle.UserControllerTest.login_ErrorCode_C001" />
+      <item itemvalue="Spring Boot.Application" />
+      <item itemvalue="Gradle.90s [bootJar]" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.90s [bootJar]" />
+        <item itemvalue="Gradle.UserControllerTest.login_ErrorCode_C001" />
+        <item itemvalue="Gradle.UserControllerTest.login" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

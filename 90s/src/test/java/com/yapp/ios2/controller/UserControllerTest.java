@@ -91,27 +91,27 @@ public class UserControllerTest{
 
     }
 
-    @Test
-    public void join() throws Exception {
-
-        JoinDto joinDto = new JoinDto();
-        joinDto.setEmailKakao("tester@90s.com");
-        joinDto.setName("tester");
-        joinDto.setPhone("010-9523-3114");
-
-        ObjectMapper json = new ObjectMapper();
-        String jsonString = json.writerWithDefaultPrettyPrinter().writeValueAsString(joinDto);
-
-        mockMvc.perform(
-                post("/user/join")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(jsonString)
-                        .accept(MediaType.APPLICATION_JSON))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andDo(print());
-
-        deleteTester(userService, userRepository, jwtProvider);
+//    @Test
+//    public void join() throws Exception {
+//
+//        JoinDto joinDto = new JoinDto();
+//        joinDto.setEmailKakao("tester@90s.com");
+//        joinDto.setName("tester");
+//        joinDto.setPhone("010-9523-3114");
+//
+//        ObjectMapper json = new ObjectMapper();
+//        String jsonString = json.writerWithDefaultPrettyPrinter().writeValueAsString(joinDto);
+//
+//        mockMvc.perform(
+//                post("/user/join")
+//                        .contentType(MediaType.APPLICATION_JSON)
+//                        .content(jsonString)
+//                        .accept(MediaType.APPLICATION_JSON))
+//                .andDo(print())
+//                .andExpect(status().isOk())
+//                .andDo(print());
+//
+//        deleteTester(userService, userRepository, jwtProvider);
 
 //                .andDo(document.document(
 //                        requestFields(
@@ -126,36 +126,55 @@ public class UserControllerTest{
 //        if(userRepository.findByEmail("tester@90s.com").isPresent()){
 //            userRepository.delete(userRepository.findByEmail("tester@90s.com").get());
 //        }
+//    }
+
+    @Test
+    public void login_ErrorCode_C001() throws Exception {
+
+        LoginDto loginDto = new LoginDto();
+        loginDto.setEmailKakao("tester@90s.com");
+
+        ObjectMapper json = new ObjectMapper();
+        String jsonString = json.writerWithDefaultPrettyPrinter().writeValueAsString(loginDto);
+
+        mockMvc.perform(
+                post("/user/login")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonString)
+                        .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andDo(document.document(
+                ));
     }
 
-//    @Test
-//    public void login() throws Exception {
-//
-//        LoginDto loginDto = new LoginDto();
-//        loginDto.setEmail("tester0@90s.com");
-//        loginDto.setPassword("test");
-//        loginDto.setSosial(false);
-//
-//
-//        ObjectMapper json = new ObjectMapper();
-//        String jsonString = json.writerWithDefaultPrettyPrinter().writeValueAsString(loginDto);
-//
-//        mockMvc.perform(
-//                post("/user/login")
-//                        .contentType(MediaType.APPLICATION_JSON)
-//                        .content(jsonString)
-//                        .accept(MediaType.APPLICATION_JSON))
-//                .andDo(print())
-//                .andExpect(status().isOk())
-//                .andDo(document.document(
-//                        requestFields(
-//                                fieldWithPath("email").description("이메일").attributes(new Attributes.Attribute("format","test@90s.com")),
-//                                fieldWithPath("password").description("비밀번호").attributes(new Attributes.Attribute("format","카카오 로그인 시에는 null로 보내지 않아도 무관합니다.")),
-//                                fieldWithPath("sosial").type("Boolean").description("카카오 로그인 여부").attributes(new Attributes.Attribute("format","true / false"))
-//                        )
-//                ));
-//    }
-//
+    @Test
+    public void login() throws Exception {
+
+        LoginDto loginDto = new LoginDto();
+        loginDto.setEmailKakao("tester@90s.com");
+        loginDto.setEmailApple("");
+        loginDto.setEmailGoogle("");
+
+        User user = TestFunc.createTester(userRepository, passwordEncoder);
+
+        ObjectMapper json = new ObjectMapper();
+        String jsonString = json.writerWithDefaultPrettyPrinter().writeValueAsString(loginDto);
+
+        mockMvc.perform(
+                post("/user/login")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonString)
+                        .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andDo(document.document(
+                ));
+
+        TestFunc.deleteTester(userService, user);
+
+    }
+
 //    @Test
 //    public void delete_account() throws Exception {
 //

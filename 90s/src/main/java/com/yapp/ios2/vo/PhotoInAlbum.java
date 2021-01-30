@@ -35,7 +35,7 @@ public class PhotoInAlbum {
     private Integer paperNum;
 
     @Column
-    private Integer order;
+    private Integer sequence;
 
     @CreationTimestamp
     private LocalDateTime createdAt;

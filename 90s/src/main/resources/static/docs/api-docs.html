@@ -452,7 +452,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel2">
 <li><a href="#_user">User</a>
 <ul class="sectlevel3">
-<li><a href="#_join">JOIN</a></li>
 <li><a href="#_login">LOGIN</a></li>
 <li><a href="#_delete_account">DELETE_ACCOUNT</a></li>
 <li><a href="#_check_email">CHECK_EMAIL</a></li>
@@ -464,7 +463,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_album">Album</a>
 <ul class="sectlevel3">
 <li><a href="#_create">CREATE</a></li>
-<li><a href="#_get_albums">GET-ALBUMS</a></li>
+<li><a href="#_get_user_profile_2">GET-USER-PROFILE</a></li>
 </ul>
 </li>
 </ul>
@@ -571,153 +570,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 <hr>
 <div class="sect3">
-<h4 id="_join"><a class="link" href="#_join">JOIN</a></h4>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">user/join</dt>
-<dd>
-<p>회원가입의 방식은 2가지이며, 각각의 방식에 따라 필요한 값이 달라집니다.<br></p>
-</dd>
-<dt class="hdlist1">일반 로그인</dt>
-<dd>
-<p>social 파라미터를 false 로 보내며, password를 보내야 합니다.</p>
-</dd>
-<dt class="hdlist1">카카오 로그인</dt>
-<dd>
-<p>social 파라미터를 true 로 보내며, 따로 password를 보내지 않아도 됩니다.</p>
-</dd>
-</dl>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Desc</caption>
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">기능</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">방식</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">URI</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">회원가입</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Post</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user/join</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Request Fields</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">필드명</th>
-<th class="tableblock halign-left valign-top">타입</th>
-<th class="tableblock halign-left valign-top">필수값</th>
-<th class="tableblock halign-left valign-top">예시</th>
-<th class="tableblock halign-left valign-top">설명</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>email</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mailto:test@90s.com">test@90s.com</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">이메일</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>name</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">유저 이름</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>password</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">카카오 로그인 시에는 null로 보내지 않아도 무관합니다.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">비밀번호</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>phone</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">010-1234-5678</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">핸드폰 번호</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sosial</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true / false</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">카카오 로그인 여부</p></td>
-</tr>
-</tbody>
-</table>
-<div class="listingblock">
-<div class="title">Request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /user/join HTTP/1.1
-Content-Type: application/json
-Accept: application/json
-Content-Length: 123
-Host: 90s.com
-
-{
-  "email" : "tester@90s.com",
-  "password" : "test",
-  "name" : "test",
-  "phone" : "010-9523-3114",
-  "sosial" : false
-}</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json
-X-Content-Type-Options: nosniff
-X-XSS-Protection: 1; mode=block
-Cache-Control: no-cache, no-store, max-age=0, must-revalidate
-Pragma: no-cache
-Expires: 0
-Strict-Transport-Security: max-age=31536000 ; includeSubDomains
-X-Frame-Options: DENY
-Content-Length: 173
-
-{
-  "jwt" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1MTUiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjAxMTA0Nzc2LCJleHAiOjIyMzE4MjQ3NzZ9.c9Q4nM3xvR2cVL0gtdr10s9Qn3aAbZRCkK2yLpVC7kY"
-}</code></pre>
-</div>
-</div>
-<hr>
-</div>
-<div class="sect3">
 <h4 id="_login"><a class="link" href="#_login">LOGIN</a></h4>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">user/login</dt>
 <dd>
-<p>로그인 방식 또한 회원가입처럼 2가지 입니다.</p>
-</dd>
-<dt class="hdlist1">일반 로그인</dt>
-<dd>
-<p>social 파라미터를 false 로 보내며, password를 보내야 합니다.</p>
-</dd>
-<dt class="hdlist1">카카오 로그인</dt>
-<dd>
-<p>social 파라미터를 true 로 보내며, 따로 password를 보내지 않아도 됩니다.</p>
+<p>카카오, 구글, 애플 이메일 중 1개를 POST 합니다.</p>
 </dd>
 </dl>
 </div>
@@ -789,13 +647,14 @@ Content-Length: 173
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /user/login HTTP/1.1
 Content-Type: application/json
 Accept: application/json
-Content-Length: 76
+Content-Length: 101
 Host: 90s.com
 
 {
-  "sosial" : false,
-  "email" : "tester0@90s.com",
-  "password" : "test"
+  "emailKakao" : "tester@90s.com",
+  "emailApple" : "",
+  "emailGoogle" : "",
+  "phoneNum" : null
 }</code></pre>
 </div>
 </div>
@@ -811,10 +670,10 @@ Pragma: no-cache
 Expires: 0
 Strict-Transport-Security: max-age=31536000 ; includeSubDomains
 X-Frame-Options: DENY
-Content-Length: 175
+Content-Length: 173
 
 {
-  "jwt" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1NCIsInJvbGVzIjpbIlJPTEVfVEVTVEVSIl0sImlhdCI6MTYwMTEwNDc3NiwiZXhwIjoyMjMxODI0Nzc2fQ.N7iM8oEp6qYm2jXB7Yydopk4GrxjEfIiS1xsnzab8sQ"
+  "jwt" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwicm9sZXMiOlsiUk9MRV9URVNURVIiXSwiaWF0IjoxNjExOTgwODgxLCJleHAiOjIyNDI3MDA4ODF9.BXzwVdSPtDUKzrGp4PmxrCqioQ2kAFDn2anjzEA1OB4"
 }</code></pre>
 </div>
 </div>
@@ -849,27 +708,13 @@ Content-Length: 175
 </tr>
 </tbody>
 </table>
-<div class="listingblock">
+<div class="paragraph">
 <div class="title">Request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /user/delete HTTP/1.1
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1MTMiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjAxMTA0Nzc1LCJleHAiOjIyMzE4MjQ3NzV9.3LL10zmDLq2MiBc9CWnX2KMdD8ZpjKFNTOJLyfnG2vw
-Accept: application/json
-Host: 90s.com</code></pre>
+<p>Unresolved directive in api-docs.adoc - include::../../../build/generated-snippets/user-controller-test/delete_account/http-request.adoc[]</p>
 </div>
-</div>
-<div class="listingblock">
+<div class="paragraph">
 <div class="title">Response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
-X-Content-Type-Options: nosniff
-X-XSS-Protection: 1; mode=block
-Cache-Control: no-cache, no-store, max-age=0, must-revalidate
-Pragma: no-cache
-Expires: 0
-Strict-Transport-Security: max-age=31536000 ; includeSubDomains
-X-Frame-Options: DENY</code></pre>
-</div>
+<p>Unresolved directive in api-docs.adoc - include::../../../build/generated-snippets/user-controller-test/delete_account/http-response.adoc[]</p>
 </div>
 </div>
 <div class="sect3">
@@ -921,66 +766,13 @@ X-Frame-Options: DENY</code></pre>
 </tr>
 </tbody>
 </table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Request fields</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">필드명</th>
-<th class="tableblock halign-left valign-top">타입</th>
-<th class="tableblock halign-left valign-top">필수값</th>
-<th class="tableblock halign-left valign-top">예시</th>
-<th class="tableblock halign-left valign-top">설명</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>email</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mailto:test@90s.com">test@90s.com</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">이메일</p></td>
-</tr>
-</tbody>
-</table>
-<div class="listingblock">
-<div class="title">Request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /user/checkEmail HTTP/1.1
-Content-Type: application/json
-Accept: application/json
-Content-Length: 32
-Host: 90s.com
-
-{
-  "email" : "tester@90s.com"
-}</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json
-X-Content-Type-Options: nosniff
-X-XSS-Protection: 1; mode=block
-Cache-Control: no-cache, no-store, max-age=0, must-revalidate
-Pragma: no-cache
-Expires: 0
-Strict-Transport-Security: max-age=31536000 ; includeSubDomains
-X-Frame-Options: DENY
-Content-Length: 21
-
-{
-  "result" : true
-}</code></pre>
-</div>
+<div class="paragraph">
+<div class="title">Request fields</div>
+<p>Unresolved directive in api-docs.adoc - include::../../../build/generated-snippets/user-controller-test/check_email/request-fields.adoc[]
+.Request
+Unresolved directive in api-docs.adoc - include::../../../build/generated-snippets/user-controller-test/check_email/http-request.adoc[]
+.Response
+Unresolved directive in api-docs.adoc - include::../../../build/generated-snippets/user-controller-test/check_email/http-response.adoc[]</p>
 </div>
 </div>
 <div class="sect3">
@@ -1013,66 +805,17 @@ Content-Length: 21
 </tr>
 </tbody>
 </table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Request fields</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">필드명</th>
-<th class="tableblock halign-left valign-top">타입</th>
-<th class="tableblock halign-left valign-top">필수값</th>
-<th class="tableblock halign-left valign-top">예시</th>
-<th class="tableblock halign-left valign-top">설명</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>phoneNumber</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">01012341234</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">핸드폰 번호를 보내며 - 없이 숫자만 보냅니다.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="listingblock">
+<div class="paragraph">
+<div class="title">Request fields</div>
+<p>Unresolved directive in api-docs.adoc - include::../../../build/generated-snippets/user-controller-test/check_phone-num/request-fields.adoc[]</p>
+</div>
+<div class="paragraph">
 <div class="title">Request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /user/checkPhoneNum HTTP/1.1
-Content-Type: application/json
-Accept: application/json
-Content-Length: 35
-Host: 90s.com
-
-{
-  "phoneNumber" : "01095233114"
-}</code></pre>
+<p>Unresolved directive in api-docs.adoc - include::../../../build/generated-snippets/user-controller-test/check_phone-num/http-request.adoc[]</p>
 </div>
-</div>
-<div class="listingblock">
+<div class="paragraph">
 <div class="title">Response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json
-X-Content-Type-Options: nosniff
-X-XSS-Protection: 1; mode=block
-Cache-Control: no-cache, no-store, max-age=0, must-revalidate
-Pragma: no-cache
-Expires: 0
-Strict-Transport-Security: max-age=31536000 ; includeSubDomains
-X-Frame-Options: DENY
-Content-Length: 22
-
-{
-  "num" : "947941"
-}</code></pre>
-</div>
+<p>Unresolved directive in api-docs.adoc - include::../../../build/generated-snippets/user-controller-test/check_phone-num/http-response.adoc[]</p>
 </div>
 </div>
 <div class="sect3">
@@ -1105,86 +848,21 @@ Content-Length: 22
 </tr>
 </tbody>
 </table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Request Header</caption>
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>X-AUTH-TOKEN</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">JWT</p></td>
-</tr>
-</tbody>
-</table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Request fields</caption>
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">필드명</th>
-<th class="tableblock halign-left valign-top">타입</th>
-<th class="tableblock halign-left valign-top">필수값</th>
-<th class="tableblock halign-left valign-top">예시</th>
-<th class="tableblock halign-left valign-top">설명</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>phoneNum</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">01012345678</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">핸드폰번호</p></td>
-</tr>
-</tbody>
-</table>
-<div class="listingblock">
+<div class="paragraph">
+<div class="title">Request Header</div>
+<p>Unresolved directive in api-docs.adoc - include::../../../build/generated-snippets/user-controller-test/update-phone-number/request-headers.adoc[]</p>
+</div>
+<div class="paragraph">
+<div class="title">Request fields</div>
+<p>Unresolved directive in api-docs.adoc - include::../../../build/generated-snippets/user-controller-test/update-phone-number/request-fields.adoc[]</p>
+</div>
+<div class="paragraph">
 <div class="title">Request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /user/updatePhoneNumber HTTP/1.1
-Content-Type: application/json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1MTYiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjAxMTA0Nzc3LCJleHAiOjIyMzE4MjQ3Nzd9.diNFZyuJ0WXgSa7mOYmdz9JL7EJfoPHvbhC9_6dMdVE
-Accept: application/json
-Content-Length: 32
-Host: 90s.com
-
-{
-  "phoneNum" : "01095233114"
-}</code></pre>
+<p>Unresolved directive in api-docs.adoc - include::../../../build/generated-snippets/user-controller-test/update-phone-number/http-request.adoc[]</p>
 </div>
-</div>
-<div class="listingblock">
+<div class="paragraph">
 <div class="title">Response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json
-X-Content-Type-Options: nosniff
-X-XSS-Protection: 1; mode=block
-Cache-Control: no-cache, no-store, max-age=0, must-revalidate
-Pragma: no-cache
-Expires: 0
-Strict-Transport-Security: max-age=31536000 ; includeSubDomains
-X-Frame-Options: DENY
-Content-Length: 173
-
-{
-  "jwt" : "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1MTYiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjAxMTA0Nzc3LCJleHAiOjIyMzE4MjQ3Nzd9.diNFZyuJ0WXgSa7mOYmdz9JL7EJfoPHvbhC9_6dMdVE"
-}</code></pre>
-</div>
+<p>Unresolved directive in api-docs.adoc - include::../../../build/generated-snippets/user-controller-test/update-phone-number/http-response.adoc[]</p>
 </div>
 </div>
 <div class="sect3">
@@ -1217,60 +895,17 @@ Content-Length: 173
 </tr>
 </tbody>
 </table>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Request Header</caption>
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>X-AUTH-TOKEN</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">JWT</p></td>
-</tr>
-</tbody>
-</table>
-<div class="listingblock">
+<div class="paragraph">
+<div class="title">Request Header</div>
+<p>Unresolved directive in api-docs.adoc - include::../../../build/generated-snippets/user-controller-test/get-user-proile/request-headers.adoc[]</p>
+</div>
+<div class="paragraph">
 <div class="title">Request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /user/getUserProfile HTTP/1.1
-Content-Type: application/json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1MTUiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjAxMTA0Nzc2LCJleHAiOjIyMzE4MjQ3NzZ9.c9Q4nM3xvR2cVL0gtdr10s9Qn3aAbZRCkK2yLpVC7kY
-Accept: application/json
-Host: 90s.com</code></pre>
+<p>Unresolved directive in api-docs.adoc - include::../../../build/generated-snippets/user-controller-test/get-user-proile/http-request.adoc[]</p>
 </div>
-</div>
-<div class="listingblock">
+<div class="paragraph">
 <div class="title">Response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json
-X-Content-Type-Options: nosniff
-X-XSS-Protection: 1; mode=block
-Cache-Control: no-cache, no-store, max-age=0, must-revalidate
-Pragma: no-cache
-Expires: 0
-Strict-Transport-Security: max-age=31536000 ; includeSubDomains
-X-Frame-Options: DENY
-Content-Length: 180
-
-{
-  "albumTotalCount" : 0,
-  "albumPrintingCount" : 0,
-  "userInfo" : {
-    "uid" : 515,
-    "email" : "tester@90s.com",
-    "name" : "test",
-    "phoneNum" : "010-9523-3114"
-  }
-}</code></pre>
-</div>
+<p>Unresolved directive in api-docs.adoc - include::../../../build/generated-snippets/user-controller-test/get-user-proile/http-response.adoc[]</p>
 </div>
 </div>
 </div>
@@ -1371,7 +1006,7 @@ Content-Length: 445
     "uid" : 1,
     "status" : "pending"
   },
-  "albumType" : {
+  "cover" : {
     "uid" : 1,
     "name" : "1990",
     "path" : "static/1990.jpeg"
@@ -1387,10 +1022,10 @@ Content-Length: 445
 <hr>
 </div>
 <div class="sect3">
-<h4 id="_get_albums"><a class="link" href="#_get_albums">GET-ALBUMS</a></h4>
+<h4 id="_get_user_profile_2"><a class="link" href="#_get_user_profile_2">GET-USER-PROFILE</a></h4>
 <div class="dlist">
 <dl>
-<dt class="hdlist1">album/getAlbums</dt>
+<dt class="hdlist1">album/getUserProfile</dt>
 <dd>
 <p>JWT 유저 정보를 이용해 해당 유저가 만들거나 속해져 있는 엘범 정보를 가져옵니다.</p>
 </dd>
@@ -1412,7 +1047,7 @@ Content-Length: 445
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">엘범 정보들 가져오기</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">album/getAlbums</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">album/getUserProfile</p></td>
 </tr>
 </tbody>
 </table>
@@ -1449,7 +1084,7 @@ Content-Length: 1307
     "uid" : 1,
     "status" : "pending"
   },
-  "albumType" : {
+  "cover" : {
     "uid" : 1,
     "name" : "1990",
     "path" : "static/1990.jpeg"
@@ -1469,7 +1104,7 @@ Content-Length: 1307
     "uid" : 1,
     "status" : "pending"
   },
-  "albumType" : {
+  "cover" : {
     "uid" : 1,
     "name" : "1990",
     "path" : "static/1990.jpeg"
@@ -1489,7 +1124,7 @@ Content-Length: 1307
     "uid" : 1,
     "status" : "pending"
   },
-  "albumType" : {
+  "cover" : {
     "uid" : 1,
     "name" : "1990",
     "path" : "static/1990.jpeg"
@@ -1510,7 +1145,7 @@ Content-Length: 1307
 <div id="footer">
 <div id="footer-text">
 Version 0.0.1-SNAPSHOT<br>
-Last updated 2020-09-26 16:15:04 +0900
+Last updated 2021-01-30 13:34:40 +0900
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/github.min.css">

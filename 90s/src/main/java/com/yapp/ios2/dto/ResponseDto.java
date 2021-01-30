@@ -27,4 +27,12 @@ public class ResponseDto {
         private String url;
     }
 
+    @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class DataDto{
+        private String data;
+    }
+
+
 }
