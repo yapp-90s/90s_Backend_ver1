@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="72a37ed6-ab00-4e26-bf9b-1a538bdd9fec" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/90s/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/90s/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/90s/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/90s/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +85,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager" selected="Gradle.90s [bootJar]">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
@@ -175,8 +175,8 @@
     <list>
       <item itemvalue="Gradle.UserControllerTest.login" />
       <item itemvalue="Gradle.UserControllerTest.login_ErrorCode_C001" />
-      <item itemvalue="Spring Boot.Application" />
       <item itemvalue="Gradle.90s [bootJar]" />
+      <item itemvalue="Spring Boot.Application" />
     </list>
     <recent_temporary>
       <list>
@@ -200,6 +200,7 @@
       <workItem from="1611471777183" duration="5844000" />
       <workItem from="1611478190340" duration="268000" />
       <workItem from="1611478486070" duration="338000" />
+      <workItem from="1611991581955" duration="336000" />
     </task>
     <servers />
   </component>
